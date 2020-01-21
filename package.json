@@ -1,0 +1,24 @@
+{
+  "name": "humble",
+  "version": "1.0.0",
+  "description": "- dan running the UX hype - judith devving the ops - kin mastering the scrum - reggie keeping the quality high",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac18/humble.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac18/humble/issues"
+  },
+  "homepage": "https://github.com/fac18/humble#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
