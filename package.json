@@ -4,11 +4,18 @@
   "description": "- dan running the UX hype - judith devving the ops - kin mastering the scrum - reggie keeping the quality high",
   "main": "index.js",
   "scripts": {
+    "dbtest-init": "NODE_ENV=test node server/model/dbInit.js",
     "start": "node server/index.js",
     "heroku-postbuild": "cd client && npm i && npm run build",
     "dev-build": "cd client && npm run build && cd .. && node server/index.js",
-    "react-test": "cd client && npm test"
+    "react-test": "cd client && npm test",
+    "test": "jest"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+        "<rootDir>/client"
+    ]   
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fac18/humble.git"
@@ -21,6 +28,9 @@
   },
   "homepage": "https://github.com/fac18/humble#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "env2": "^2.2.2",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "pg": "^7.17.1"
   }
 }
