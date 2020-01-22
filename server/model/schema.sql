@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE CASCADE members, categories, offers, requests, interactions, comments, groups, group_members;
+DROP TABLE IF EXISTS members, categories, offers, requests, interactions, comments, groups, group_members CASCADE;
 
 CREATE TABLE "members" (
   "member_id" SERIAL PRIMARY KEY,
