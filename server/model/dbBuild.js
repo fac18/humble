@@ -4,4 +4,4 @@ const dbConnection = require('./dbConnection');
 
 const sql = fs.readFileSync(`${__dirname}/schema.sql`).toString();
 
-module.exports = dbBuild = dbConnection.query(sql);
+module.exports = dbConnection.query(sql);
