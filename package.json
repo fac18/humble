@@ -11,6 +11,11 @@
     "react-test": "cd client && npm test",
     "test": "jest"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+        "<rootDir>/client"
+    ]   
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fac18/humble.git"

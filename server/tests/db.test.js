@@ -1,5 +1,6 @@
 const dbBuild = require("../model/dbBuild")
 const dbConnection = require("../model/dbConnection")
+const {getMember} = require("../queries/getData")
 
 beforeEach(() => {
     return dbBuild;
