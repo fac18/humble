@@ -87,6 +87,6 @@ INSERT INTO members (email, hashed_password, member_name, postcode, avatar_url) 
 ('regi@fac.com', 'password1' , 'Reggie', 'N154UY', 'https://previews.123rf.com/images/cteconsulting/cteconsulting1405/cteconsulting140500148/28827832-an-image-of-a-teddy-bear-face.jpg'),
 ('judith@fac.com', 'passowrd2', 'Judith', 'N153XF', 'https://image.shutterstock.com/image-photo/big-bull-young-strong-have-260nw-754733863.jpg'),
 ('dan@fac.com', 'password3', 'Dan', 'N154ZS', 'https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg'),
-('kin@fac.com', 'password4', 'Kin', 'N159BT', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png')
+('kin@fac.com', 'password4', 'Kin', 'N159BT', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png');
 
 COMMIT;
