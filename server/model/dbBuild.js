@@ -2,6 +2,6 @@ const fs = require('fs');
 
 const dbConnection = require('./dbConnection');
 
-const sql = fs.readFileSync(`${__dirname}/schema.sql`).toString();
+const dbBuild = (sql) => dbConnection.query(sql);
 
-module.exports = dbConnection.query(sql);
+module.exports = dbBuild;
