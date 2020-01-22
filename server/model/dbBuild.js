@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const dbConnection = require('./db_connection');
+const dbConnection = require('./dbConnection');
 
 const sql = fs.readFileSync(`${__dirname}/schema.sql`).toString();
 
