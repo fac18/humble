@@ -5,16 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dbtest-init": "NODE_ENV=test node model/dbInit.js",
-    "start": "node server/index.js",
+    "start": "node index.js",
     "heroku-postbuild": "cd ../client && npm i && npm run build",
     "dev-build": "cd ../client && npm run build && cd .. && node server/index.js",
     "react-test": "cd ../client && npm test",
     "test": "jest"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "<rootDir>/client"
-    ]
   },
   "repository": {
     "type": "git",
@@ -32,5 +27,8 @@
     "express": "^4.17.1",
     "jest": "^25.1.0",
     "pg": "^7.17.1"
+  },
+  "devDependencies": {
+    "supertest": "^4.0.2"
   }
 }
