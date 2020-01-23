@@ -20,13 +20,10 @@
     "url": "https://github.com/fac18/humble/issues"
   },
   "homepage": "https://github.com/fac18/humble#readme",
-  "dependencies": {
-    "env2": "^2.2.2",
-    "express": "^4.17.1",
-    "jest": "^25.1.0",
-    "pg": "^7.17.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "jest": "^25.1.0",
+    "env2": "^2.2.2"
   }
 }
