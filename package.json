@@ -2,13 +2,13 @@
   "name": "humble",
   "version": "1.0.0",
   "description": "- dan running the UX hype - judith devving the ops - kin mastering the scrum - reggie keeping the quality high",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "db-init": "NODE_ENV=production node model/dbInit.js",
-    "dev:db-init": "NODE_ENV=test node model/dbInit.js",
-    "dev:start": "NODE_ENV=test nodemon index.js",
-    "dev:build": "NODE_ENV=test cd ../client && npm run build && cd ../server && nodemon index.js",
-    "test": "NODE_ENV=test jest"
+    "start": "node server/index.js",
+    "heroku-postbuild": "cd client && npm i && npm run build"
+  },
+  "engines": {
+    "node": "12.x"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,8 @@
     "url": "https://github.com/fac18/humble/issues"
   },
   "homepage": "https://github.com/fac18/humble#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "supertest": "^4.0.2",
-    "jest": "^25.1.0",
-    "env2": "^2.2.2",
-    "nodemon": "^2.0.2"
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.17.1"
   }
 }
