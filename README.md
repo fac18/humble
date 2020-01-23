@@ -17,13 +17,31 @@ We are building an app that has a React frontend (see the client folder) with an
 
 First, clone the repo as usual.
 
-In order to enable deployment but separate concerns as much as possible, we actually have three different npm environments - one at the root, one in the client folder, and one in the server folder. To handle all of this, run the following code:
+In order to enable deployment but separate concerns as much as possible, we actually have three different npm environments - one at the _root_, one in the _client_ folder, and one in the _server_ folder. To handle installation for all of this, run the following code:
 
 ```javascript
 npm i && cd client && npm i && cd ../server && npm i && cd ..
 ```
 
-#### goals
+---
+
+### Scripts
+
+You can then run `npm run dev:start` or `npm run dev:build` from any directory.
+
+The former will run the Express server on port 3001, and listen for changes.
+
+The latter will first do a fresh production build of the React app in the client folder, and then do the same as above.
+
+Therefore, any changes to the client side code will require a full rebuild in order to see in the browser.
+
+We are not currently using the React development server (booted by running `npm start` from the client folder) since it breaks without the Express server making the database API available - however, this would not be the case if we were handling our errors properly, so we aim to be able to at a later stage.
+
+Running `npm test` in the _client_ and _server_ folders will run their respective test suites, while running it from the root of the project will run first the _client_ tests, and then the _server_ tests.
+
+---
+
+## Goals
 
 **4 images below are not showing correctly**
 
@@ -81,7 +99,7 @@ npm i && cd client && npm i && cd ../server && npm i && cd ..
 
 4.  As a user I would like to be able to create a profile that includes my name and postcode and a picture.
 
-5.        As a user I would like to be able to upload skills, experience or 	knowledge that I have to offer.
+5.                  As a user I would like to be able to upload skills, experience or 	knowledge that I have to offer.
 
 6.  As a user I would like to be able to upload a problem that I would like help with to solve.
 
@@ -91,7 +109,7 @@ npm i && cd client && npm i && cd ../server && npm i && cd ..
 
 8.  As a user I would like to be able to search for by category for skills, experience and knowledge that is on offer in my area.
 
-9.        As a user I would like to be able to search by category for any 	problems that people have in my area that I might be able to help 	with.
+9.                  As a user I would like to be able to search by category for any 	problems that people have in my area that I might be able to help 	with.
 
 ---
 
