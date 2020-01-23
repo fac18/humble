@@ -4,7 +4,7 @@
   "description": "- dan running the UX hype - judith devving the ops - kin mastering the scrum - reggie keeping the quality high",
   "main": "index.js",
   "scripts": {
-    "dbtest-init": "NODE_ENV=test node server/model/dbInit.js",
+    "dbtest-init": "NODE_ENV=test node model/dbInit.js",
     "start": "node server/index.js",
     "heroku-postbuild": "cd ../client && npm i && npm run build",
     "dev-build": "cd ../client && npm run build && cd .. && node server/index.js",
