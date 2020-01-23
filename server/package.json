@@ -7,6 +7,7 @@
     "dbtest-init": "NODE_ENV=test node model/dbInit.js",
     "start": "node index.js",
     "heroku-postbuild": "cd ../client && npm i && npm run build",
+    "dev-start": "NODE_ENV=test nodemon index.js",
     "dev-build": "NODE_ENV=test cd ../client && npm run build && cd ../server && node index.js",
     "react-test": "cd ../client && npm test",
     "test": "jest"
@@ -29,6 +30,7 @@
     "pg": "^7.17.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   }
 }
