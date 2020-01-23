@@ -8,7 +8,7 @@
     "heroku-postbuild": "cd client && npm i && npm run build"
   },
   "engines": {
-    "node": "13.x"
+    "node": "12.x"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/fac18/humble/issues"
   },
-  "homepage": "https://github.com/fac18/humble#readme"
+  "homepage": "https://github.com/fac18/humble#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.17.1"
+  }
 }
