@@ -5,5 +5,5 @@ cache:
   directories:
     - node_modules
 script:
-  - cd server && npm test
-  - cd server && npm run coverage
+  - npm test
+  - npm run coverage
