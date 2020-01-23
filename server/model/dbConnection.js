@@ -2,9 +2,14 @@ const { Pool } = require("pg");
 const url = require("url");
 require("env2")(".env");
 
+const isTravis = process.env.NODE_ENV === "travis";
 const isProduction = process.env.NODE_ENV === "production";
 
-const DB_URL = isProduction ? process.env.DB_URL : process.env.DBTEST_URL;
+const DB_URL = isProduction
+  ? process.env.DB_URL
+  : isTravis
+  ? process.env.DBTRAVIS_URL
+  : process.env.DBTEST_URL;
 
 if (!DB_URL) throw new Error("Environment variable not available");
 

@@ -4,6 +4,7 @@ node_js:
 cache:
   directories:
     - node_modules
+    - server/node_modules
 script:
-  - npm test
-  - npm run report-coverage
+  - npm run test:travis
+  - npm run coverage
