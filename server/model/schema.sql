@@ -34,10 +34,10 @@ CREATE TABLE "requests" (
 
 CREATE TABLE "interactions" (
   "interaction_id" SERIAL PRIMARY KEY,
-  "offer_id" INT NOT NULL,
-  "request_id" INT NOT NULL,
-  "offerer_id" INT NOT NULL,
-  "requester_id" INT NOT NULL
+  "offer_id" INT,
+  "request_id" INT,
+  "offerer_id" INT,
+  "requester_id" INT
 );
 
 CREATE TABLE "comments" (
@@ -108,6 +108,21 @@ INSERT INTO requests (category_id, request_name, request_description, member_id)
 (1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 1),
 (2, 'remodelling' , 'My second baby has a crib that needs remodelling but I would love if someone could teach me how to do it', 2),
 (3, 'swimming' , 'Would love it if anyone could help me with backstroke', 3),
-(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 4);
+(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 4)
+;
+
+INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
+( 1, , 4, 3 ),
+( 2, , 3, 4 ),
+( , 3 , 2, 1 ),
+( , 4 , 1, 2 )
+;
+
+INSERT INTO comments (category_id, request_name, request_description, member_id) VALUES
+(1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 1),
+(2, 'remodelling' , 'My second baby has a crib that needs remodelling but I would love if someone could teach me how to do it', 2),
+(3, 'swimming' , 'Would love it if anyone could help me with backstroke', 3),
+(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 4)
+;
 
 COMMIT;
