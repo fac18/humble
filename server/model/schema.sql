@@ -34,9 +34,10 @@ CREATE TABLE "requests" (
 
 CREATE TABLE "interactions" (
   "interaction_id" SERIAL PRIMARY KEY,
-  "category_id" INT NOT NULL,
-  "sharer_id" INT NOT NULL,
-  "connector_id" INT NOT NULL
+  "offer_id" INT NOT NULL,
+  "request_id" INT NOT NULL,
+  "offerer_id" INT NOT NULL,
+  "requester_id" INT NOT NULL
 );
 
 CREATE TABLE "comments" (
@@ -67,11 +68,13 @@ ALTER TABLE "requests" ADD FOREIGN KEY ("category_id") REFERENCES "categories" (
 
 ALTER TABLE "requests" ADD FOREIGN KEY ("member_id") REFERENCES "members" ("member_id");
 
-ALTER TABLE "interactions" ADD FOREIGN KEY ("category_id") REFERENCES "categories" ("category_id");
+ALTER TABLE "interactions" ADD FOREIGN KEY ("offer_id") REFERENCES "offers" ("offer_id");
 
-ALTER TABLE "interactions" ADD FOREIGN KEY ("sharer_id") REFERENCES "members" ("member_id");
+ALTER TABLE "interactions" ADD FOREIGN KEY ("request_id") REFERENCES "request" ("request_id");
 
-ALTER TABLE "interactions" ADD FOREIGN KEY ("connector_id") REFERENCES "members" ("member_id");
+ALTER TABLE "interactions" ADD FOREIGN KEY ("offerer_id") REFERENCES "members" ("member_id");
+
+ALTER TABLE "interactions" ADD FOREIGN KEY ("requester_id") REFERENCES "members" ("member_id");
 
 ALTER TABLE "comments" ADD FOREIGN KEY ("author_id") REFERENCES "members" ("member_id");
 
@@ -83,6 +86,23 @@ ALTER TABLE "group_members" ADD FOREIGN KEY ("group_id") REFERENCES "groups" ("g
 
 ALTER TABLE "group_members" ADD FOREIGN KEY ("member_id") REFERENCES "members" ("member_id");
 
+INSERT INTO members (email, hashed_password, member_name, postcode, avatar_url) VALUES
+('regi@fac.com', 'password1' , 'Reggie', 'N154UY', 'https://previews.123rf.com/images/cteconsulting/cteconsulting1405/cteconsulting140500148/28827832-an-image-of-a-teddy-bear-face.jpg'),
+('judith@fac.com', 'passowrd2', 'Judith', 'N153XF', 'https://image.shutterstock.com/image-photo/big-bull-young-strong-have-260nw-754733863.jpg'),
+('dan@fac.com', 'password3', 'Dan', 'N154ZS', 'https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg'),
+('kin@fac.com', 'password4', 'Kin', 'N159BT', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png');
+
+INSERT INTO categories (category_name) VALUES
+('art'),
+('DIY'),
+('sports'),
+('cooking')
+;
+INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUES
+(1, 'painting' , 'I would like to share my single-stroke prowess with a canvass', 1),
+('judith@fac.com', 'passowrd2', 'Judith', 'N153XF', 'https://image.shutterstock.com/image-photo/big-bull-young-strong-have-260nw-754733863.jpg'),
+('dan@fac.com', 'password3', 'Dan', 'N154ZS', 'https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg'),
+('kin@fac.com', 'password4', 'Kin', 'N159BT', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png');
 INSERT INTO members (email, hashed_password, member_name, postcode, avatar_url) VALUES
 ('regi@fac.com', 'password1' , 'Reggie', 'N154UY', 'https://previews.123rf.com/images/cteconsulting/cteconsulting1405/cteconsulting140500148/28827832-an-image-of-a-teddy-bear-face.jpg'),
 ('judith@fac.com', 'passowrd2', 'Judith', 'N153XF', 'https://image.shutterstock.com/image-photo/big-bull-young-strong-have-260nw-754733863.jpg'),
