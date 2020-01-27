@@ -13,3 +13,9 @@ test("get all members from members table", () => {
     expect(member.member_name).toBe("Dan");
   });
 });
+
+test("get member's offers", () => {
+  return getOffer(2).then(offer => {
+    expect(offer.offer_name).toBe("football");
+  });
+});
