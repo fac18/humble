@@ -6,5 +6,4 @@ cache:
     - node_modules
     - server/node_modules
 script:
-  - npm run test:travis
-  - npm run coverage
+  - cd server && npm install && npm test
