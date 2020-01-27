@@ -9,6 +9,26 @@ const getMember = id => {
     .then(data => data.rows[0]);
 };
 
+const getOffer = id => {
+  return dbConnection
+    .query(
+      "SELECT categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN categories ON offers.category_id=categories.category_id WHERE offers.member_id=$1",
+      [id]
+    )
+    .then(data => data.rows[0]);
+};
+
+const getRequest = id => {
+  return dbConnection
+    .query(
+      "SELECT categories.category_name, requests.request_name, requests.request_description FROM requests JOIN categories ON requests.category_id=categories.category_id WHERE requests.member_id=$1",
+      [id]
+    )
+    .then(data => data.rows[0]);
+};
+
 module.exports = {
-  getMember
+  getMember,
+  getOffer,
+  getRequest
 };

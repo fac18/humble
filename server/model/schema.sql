@@ -36,8 +36,8 @@ CREATE TABLE "interactions" (
   "interaction_id" SERIAL PRIMARY KEY,
   "offer_id" INT,
   "request_id" INT,
-  "offerer_id" INT,
-  "requester_id" INT
+  "offerer_id" INT NOT NULL,
+  "requester_id" INT NOT NULL
 );
 
 CREATE TABLE "comments" (
@@ -70,7 +70,7 @@ ALTER TABLE "requests" ADD FOREIGN KEY ("member_id") REFERENCES "members" ("memb
 
 ALTER TABLE "interactions" ADD FOREIGN KEY ("offer_id") REFERENCES "offers" ("offer_id");
 
-ALTER TABLE "interactions" ADD FOREIGN KEY ("request_id") REFERENCES "request" ("request_id");
+ALTER TABLE "interactions" ADD FOREIGN KEY ("request_id") REFERENCES "requests" ("request_id");
 
 ALTER TABLE "interactions" ADD FOREIGN KEY ("offerer_id") REFERENCES "members" ("member_id");
 
@@ -96,33 +96,30 @@ INSERT INTO categories (category_name) VALUES
 ('art'),
 ('DIY'),
 ('sports'),
-('cooking')
-;
+('cooking');
+
 INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUES
 (1, 'painting' , 'I would like to share my single-stroke prowess with a canvass', 4),
 (2, 'woodwork' , 'My cabinet-making skills have changed the world and I want to share it with someone', 3),
 (3, 'football' , 'Teaching a bicycle kick to a neighbour would be great', 2),
-(4, 'hotpot' , 'Showing a community member how to setup a hotpot brings a great feeling to me', 1)
-;
+(4, 'hotpot' , 'Showing a community member how to setup a hotpot brings a great feeling to me', 1);
+
 INSERT INTO requests (category_id, request_name, request_description, member_id) VALUES
 (1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 4),
 (2, 'remodelling' , 'My second baby has a crib that needs remodelling but I would love if someone could teach me how to do it', 3),
-(3, 'swimming' , 'Would love it if anyone could help me with backstroke', 2,
-(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 1)
-;
+(3, 'swimming' , 'Would love it if anyone could help me with backstroke', 2),
+(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 1);
 
 INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
-( 1, , 4, 3 ),
-( 2, , 3, 4 ),
-( , 3 , 1, 2 ),
-( , 4 , 2, 1 )
-;
+( 1, NULL, 4, 3 ),
+( 2, NULL, 3, 4 ),
+( NULL, 3 , 1, 2 ),
+( NULL, 4 , 2, 1 );
 
 INSERT INTO comments (author_id, subject_id, comment) VALUES
-(3, 4 , 'Taught me so much about single-strokes to make a happy painting'),
-(4, 3 , 'Managed to build a high-quality cabinet out of wood ordered online with help', 2),
-(2, 1 , 'Learned so much about backstrokes in swimming it was great'),
-(1, 2 ,'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 4)
-;
+(3, 4, 'Taught me so much about single-strokes to make a happy painting'),
+(4, 3, 'Managed to build a high-quality cabinet out of wood ordered online with help'),
+(2, 1, 'Learned so much about backstrokes in swimming it was great'),
+(1, 2, 'Will appreciate learning how to make salmon-skin sushi from a potential friend');
 
 COMMIT;
