@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { getMember } = require("./queries/getData");
+const { getMember, getOffer, getRequest } = require("./queries/getData");
 
 router.get("/get-member", (req, res) => {
   const memberId = req.query.member_id;
@@ -10,6 +10,11 @@ router.get("/get-member", (req, res) => {
   });
 });
 
+router.get("/profile", (req, res) => {
+
+  
+  Promise.all([getMember(),getOffer,(),getRequest()])
+})
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

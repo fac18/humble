@@ -1,6 +1,6 @@
 const dbBuild = require("../model/dbBuild");
 const dbConnection = require("../model/dbConnection");
-const { getMember, getOffer } = require("../queries/getData");
+const { getMember, getOffer, getRequest } = require("../queries/getData");
 const fs = require("fs");
 const schema = fs.readFileSync(`${__dirname}/../model/schema.sql`).toString();
 
@@ -22,6 +22,6 @@ test("get member's offers", () => {
 
 test("get member's requests", () => {
   return getRequest(4).then(requests => {
-    expect(requests.request_name).toBe("sushi");
+    expect(requests.request_name).toBe("drawing");
   });
 });
