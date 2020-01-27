@@ -5,13 +5,13 @@
   /* COLOURS */
 
   /* off white for backgrounds */
-  --background: var(#f7fff7);
+  --background: #f7fff7;
   /* otter brown for text */
-  --primary: var(#583e23);
+  --primary: #583e23;
   /* leaf green as secondary colour */
-  --secondary: var(#bed558);
+  --secondary: #bed558;
   /* sand yellow for detail and accenting */
-  --detail: var(#ecd444);
+  --detail: #ecd444;
 
   /* SPACING */
 
@@ -28,19 +28,17 @@
   --space-xxxl: calc(8.5 * var(--space-unit));
 
   --component-padding: var(--space-md);
-
 }
 
 body {
   margin: 0;
-  font-size: 1.25rem;
   background: var(--background);
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

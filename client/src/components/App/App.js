@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="app">
-      <Paragraph>This is our app.</Paragraph>
+      <Paragraph size="--space-lg">This is our app.</Paragraph>
       {dan ? <Paragraph>One of the members is called {dan}.</Paragraph> : null}
     </div>
   );
