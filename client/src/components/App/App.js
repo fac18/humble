@@ -6,7 +6,7 @@ import Profile from "../Profile/Profile";
 
 function App() {
   const [page, setPage] = useState("profile");
-  const [memberId, setMemberId] = useState(3);
+  const [memberId, setMemberId] = useState(4);
   const [memberName, setMemberName] = useState(null);
   const [memberAvatar, setMemberAvatar] = useState(null);
   const [memberEmail, setMemberEmail] = useState(null);
