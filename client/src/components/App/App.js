@@ -2,33 +2,74 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import getRequest from "../../utils/getRequest";
+import Profile from "../Profile/Profile";
 
 function App() {
-  const [memberName, setMemberName] = useState(1);
-  const [interactions, setInteractions] = useState(null);
+  const [page, setPage] = useState("profile");
+  const [memberId, setMemberId] = useState(3);
+  const [memberName, setMemberName] = useState(null);
+  const [memberAvatar, setMemberAvatar] = useState(null);
+  const [memberEmail, setMemberEmail] = useState(null);
+  const [memberPostcode, setMemberPostcode] = useState(null);
+  const [memberOffers, setMemberOffers] = useState(null);
+  const [memberRequests, setMemberRequests] = useState(null);
 
   useEffect(() => {
-    getRequest(`/get-member?member_id=${memberName}`).then(res => {
+    getRequest(`/get-member?member_id=${memberId}`).then(res => {
       setMemberName(res.member_name);
     });
   }, []);
 
   useEffect(() => {
-    getRequest(`/get-interaction?member_id=${memberName}`).then(res => {
-      setInteractions(res.length);
+    getRequest(`/get-member?member_id=${memberId}`).then(res => {
+      setMemberName(res.member_name);
+    });
+  }, []);
+
+  useEffect(() => {
+    getRequest(`/get-member?member_id=${memberId}`).then(res => {
+      setMemberAvatar(res.avatar_url);
+    });
+  }, []);
+
+  useEffect(() => {
+    getRequest(`/get-member?member_id=${memberId}`).then(res => {
+      setMemberEmail(res.email);
+    });
+  }, []);
+
+  useEffect(() => {
+    getRequest(`/get-member?member_id=${memberId}`).then(res => {
+      setMemberPostcode(res.postcode);
+    });
+  }, []);
+
+  useEffect(() => {
+    getRequest(`/get-profile?member_id=${memberId}`).then(res => {
+      setMemberOffers(res.member_offers);
+    });
+  });
+
+  useEffect(() => {
+    getRequest(`/get-profile?member_id=${memberId}`).then(res => {
+      setMemberRequests(res.member_requests);
     });
   });
 
   return (
-    <div className="app">
-      <p>This is our app.</p>
-      {memberName ? <p>One of the members is called {memberName}.</p> : null}
-      {interactions ? (
-        <p>
-          {memberName} has had {interactions} interactions.
-        </p>
+    <React.Fragment>
+      <h1>humble</h1>
+      {page === "profile" ? (
+        <Profile
+          memberName={memberName}
+          memberAvatar={memberAvatar}
+          memberEmail={memberEmail}
+          memberPostcode={memberPostcode}
+          memberOffers={memberOffers}
+          memberRequests={memberRequests}
+        />
       ) : null}
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -14,7 +14,7 @@ describe("getRequest function works as expected", () => {
       expect(res.member_name).toBe("Dan");
     });
   });
-  // test("/get-interactions endpoint returns a number", () => {
+  // test("/get-member-skills endpoint returns a number", () => {
   //   const mockResponse = {
   //     interactions: 3
   //   };
