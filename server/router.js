@@ -10,11 +10,16 @@ router.get("/get-member", (req, res) => {
   });
 });
 
-router.get("/profile", (req, res) => {
+router.get("/get-profile", (req, res) => {
+  const memberId = req.query.member_id;
 
-  
-  Promise.all([getMember(),getOffer,(),getRequest()])
-})
+  Promise.all([
+    getMember(memberId),
+    getOffer(memberId),
+    getRequest(memberId)
+  ]).then(data => res.json(data));
+});
+
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

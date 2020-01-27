@@ -21,7 +21,7 @@ const getOffer = id => {
 const getRequest = id => {
   return dbConnection
     .query(
-      "SELECT categories.category_name, requests.request_name, requests.request_description FROM requests JOIN categories ON offers.categoryid=categories.category_id WHERE requests.member_id=$1",
+      "SELECT categories.category_name, requests.request_name, requests.request_description FROM requests JOIN categories ON requests.category_id=categories.category_id WHERE requests.member_id=$1",
       [id]
     )
     .then(data => data.rows[0]);
