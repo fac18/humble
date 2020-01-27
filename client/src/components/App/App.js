@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+import Paragraph from "../styled/Paragraph";
+
 import getRequest from "../../utils/getRequest";
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
 
   return (
     <div className="app">
-      <p>This is our app.</p>
-      {dan ? <p>One of the members is called {dan}.</p> : null}
+      <Paragraph>This is our app.</Paragraph>
+      {dan ? <Paragraph>One of the members is called {dan}.</Paragraph> : null}
     </div>
   );
 }

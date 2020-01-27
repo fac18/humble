@@ -33,6 +33,7 @@
 
 body {
   margin: 0;
+  background: var(--background);
   font-family: 'Dosis', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
