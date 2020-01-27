@@ -6,4 +6,4 @@ cache:
     - node_modules
     - server/node_modules
 script:
-  - cd server && npm install && npm test
+  - cd client && npm install && npm test
