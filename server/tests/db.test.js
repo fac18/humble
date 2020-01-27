@@ -21,7 +21,7 @@ test("get member's offers", () => {
 });
 
 test("get member's requests", () => {
-  return getOffer(4).then(requests => {
+  return getRequest(4).then(requests => {
     expect(requests.request_name).toBe("sushi");
   });
 });
