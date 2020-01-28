@@ -8,7 +8,7 @@ import getRequest from "../../utils/getRequest";
 import Profile from "../Profile/Profile";
 
 function App() {
-  const [page, setPage] = useState("profile");
+  const [page, setPage] = useState(null);
   const [memberId, setMemberId] = useState(4);
   const [memberName, setMemberName] = useState(null);
   const [memberAvatar, setMemberAvatar] = useState(null);
@@ -16,6 +16,10 @@ function App() {
   const [memberPostcode, setMemberPostcode] = useState(null);
   const [memberOffers, setMemberOffers] = useState([]);
   const [memberRequests, setMemberRequests] = useState(null);
+
+  const changePage = page => {
+    setPage(page);
+  };
 
   useEffect(() => {
     getRequest(`/get-member?member_id=${memberId}`).then(res => {
@@ -38,6 +42,8 @@ function App() {
       <Container>
         <h1>humble</h1>
         <P size="--space-lg">This is our app.</P>
+        <button onClick={() => setPage(null)}>Go to landing page</button>
+        <button onClick={() => setPage("profile")}>Go to profile page</button>
         {page === "profile" ? (
           <Profile
             memberName={memberName}
