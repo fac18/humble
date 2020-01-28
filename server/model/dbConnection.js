@@ -5,6 +5,9 @@ require("env2")("../.env");
 // check environment and assign database URL accordingly
 const isTravis = process.env.NODE_ENV === "travis";
 const isProduction = process.env.NODE_ENV === "production";
+
+if (!(isProduction || isTravis)) require("env2")("../.env");
+
 const DB_URL = isProduction
   ? process.env.DB_URL
   : isTravis
