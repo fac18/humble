@@ -8,6 +8,7 @@ import About from "../About/About";
 import Search from "../Search/Search";
 import Profile from "../Profile/Profile";
 import Error from "../Error/Error";
+import Navbar from "../Navbar/Navbar";
 
 // import utils for API call
 import getRequest from "../../utils/getRequest";
@@ -25,6 +26,8 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route component={Error} />
       </Switch>
+
+      <Navbar />
     </main>
   );
 }
