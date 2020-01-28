@@ -14,11 +14,12 @@ function App() {
   const [memberAvatar, setMemberAvatar] = useState(null);
   const [memberEmail, setMemberEmail] = useState(null);
   const [memberPostcode, setMemberPostcode] = useState(null);
-  const [memberOffers, setMemberOffers] = useState(null);
+  const [memberOffers, setMemberOffers] = useState([]);
   const [memberRequests, setMemberRequests] = useState(null);
 
   useEffect(() => {
     getRequest(`/get-member?member_id=${memberId}`).then(res => {
+      console.log(res);
       setMemberName(res.member_name);
     });
   }, []);
@@ -49,16 +50,12 @@ function App() {
 
   useEffect(() => {
     getRequest(`/get-profile?member_id=${memberId}`).then(res => {
-      console.log(res[1][0].offer_name);
-      // setMemberOffers(res);
+      // console.log(res[2]);
+      // console.log(res[1][0].offer_name);
+      setMemberOffers(res[1]);
+      setMemberRequests(res[2]);
     });
-  });
-
-  useEffect(() => {
-    getRequest(`/get-profile?member_id=${memberId}`).then(res => {
-      setMemberRequests(res.member_requests);
-    });
-  });
+  }, []);
 
   return (
     <React.Fragment className="app">
