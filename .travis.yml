@@ -1,10 +1,12 @@
 language: node_js
 node_js:
   - "stable"
+env:
+  - NODE_ENV=travis
 cache:
   directories:
     - node_modules
     - server/node_modules
+    - client/node_modules
 script:
-  - npm run test:travis
-  - npm run coverage
+  - cd client && npm i && npm run travis:test && cd ../server && npm i && npm run travis:test

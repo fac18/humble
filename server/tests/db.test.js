@@ -1,5 +1,4 @@
 const fs = require("fs");
-// const dbConnection = require("../model/dbConnection");
 const dbQuery = require("../model/dbQuery");
 const schema = fs.readFileSync(`${__dirname}/../model/schema.sql`).toString();
 

@@ -102,7 +102,8 @@ INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUE
 (1, 'painting' , 'I would like to share my single-stroke prowess with a canvass', 4),
 (2, 'woodwork' , 'My cabinet-making skills have changed the world and I want to share it with someone', 3),
 (3, 'football' , 'Teaching a bicycle kick to a neighbour would be great', 2),
-(4, 'hotpot' , 'Showing a community member how to setup a hotpot brings a great feeling to me', 1);
+(4, 'hotpot' , 'Showing a community member how to setup a hotpot brings a great feeling to me', 1),
+(3, 'swimming', 'Able to teach various styles and techniques', 4);
 
 INSERT INTO requests (category_id, request_name, request_description, member_id) VALUES
 (1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 4),

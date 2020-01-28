@@ -5,7 +5,9 @@
 // it's also the means by which we might select its siblings (adjacent or otherwise)
 // cf. https://styled-components.com/docs/basics#coming-from-css (scroll down to 'Pseudoelements...')
 
-/*const Container = styled.div`
+const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
   background-color: var(--secondary);
   opacity: 0.8;
   padding: var(--component-padding);
@@ -14,6 +16,6 @@
     opacity: 1;
     border: var(--border-width) solid var(--detail);
   }
-`;*/
+`;
 
 //export default Container;
