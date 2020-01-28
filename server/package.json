@@ -9,7 +9,7 @@
     "dev:start": "NODE_ENV=test nodemon index.js",
     "dev:build": "NODE_ENV=test cd ../client && npm run build && cd ../server && nodemon index.js",
     "test": "NODE_ENV=test jest",
-    "test:travis": "jest"
+    "travis:test": "jest --forceExit"
   },
   "repository": {
     "type": "git",
