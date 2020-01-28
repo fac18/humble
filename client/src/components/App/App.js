@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 
-//import page-level components
+// import page-level components
 import Landing from "../Landing/Landing";
 import About from "../About/About";
 import Search from "../Search/Search";
 import Profile from "../Profile/Profile";
 import Error from "../Error/Error";
 import Navbar from "../Navbar/Navbar";
+
+// import styled-components
+import Container from "../styled/Container";
 
 // import utils for API call
 import getRequest from "../../utils/getRequest";
@@ -27,7 +30,9 @@ function App() {
         <Route component={Error} />
       </Switch>
 
-      <Navbar />
+      <Container>
+        <Navbar />
+      </Container>
     </main>
   );
 }
