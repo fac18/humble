@@ -16,7 +16,8 @@ function Profile({
       {memberEmail ? <p>Contact email: {memberEmail}.</p> : null}
       {memberPostcode ? <p>Location: {memberPostcode}</p> : null}
       <p>My offers:</p>
-      {memberOffers ? (
+      {memberOffers ? { memberOffers } : <p>You don't have any offers yet!</p>}
+      {/* {memberOffers ? (
         <ul>
           {memberOffers.map(offer => (
             <li key={offer}>{offer}</li>
@@ -24,7 +25,7 @@ function Profile({
         </ul>
       ) : (
         <p>You don't have any offers yet!</p>
-      )}
+      )} */}
       <p>My requests:</p>
       {memberRequests ? (
         <ul>

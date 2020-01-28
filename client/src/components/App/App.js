@@ -46,7 +46,8 @@ function App() {
 
   useEffect(() => {
     getRequest(`/get-profile?member_id=${memberId}`).then(res => {
-      setMemberOffers(res.member_offers);
+      console.log(res[1][0].offer_name);
+      // setMemberOffers(res);
     });
   });
 
