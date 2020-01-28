@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node server/index.js",
     "heroku-postbuild": "NODE_ENV=production cd client && npm i && npm run build && cd .. && npm i",
     "dev:start": "NODE_ENV=test cd server && nodemon index.js",
-    "dev:build": "NODE_ENV=test cd client && npm run dev:react-build && cd ../server && nodemon index.js",
+    "dev:build": "NODE_ENV=test cd client && npm run build && cd ../server && nodemon index.js",
     "test": "NODE_ENV=test cd client && npm test && cd ../server && npm test",
     "test:travis": "NODE_ENV=travis cd server && npm run test:travis",
     "coverage": "NODE_ENV=travis cd server && npm run test:travis -- --coverage --watchAll=false && codecov"
