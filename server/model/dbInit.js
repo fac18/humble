@@ -1,8 +1,8 @@
-const dbBuild = require("./dbBuild");
+const dbQuery = require("./dbQuery");
 const fs = require("fs");
 
 const sql = fs.readFileSync(`${__dirname}/schema.sql`).toString();
 
-dbBuild(sql)
+dbQuery(sql)
   .then(console.log)
   .catch(console.log);

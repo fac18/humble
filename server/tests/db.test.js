@@ -1,14 +1,15 @@
-const dbBuild = require("../model/dbBuild");
-const dbConnection = require("../model/dbConnection");
-const { getMember, getOffer, getRequest } = require("../queries/getData");
 const fs = require("fs");
+// const dbConnection = require("../model/dbConnection");
+const dbQuery = require("../model/dbQuery");
 const schema = fs.readFileSync(`${__dirname}/../model/schema.sql`).toString();
 
+const { getMember, getOffer, getRequest } = require("../queries/getData");
+
 beforeEach(() => {
-  return dbBuild(schema);
+  return dbQuery(schema);
 });
 
-test("get all members from members table", () => {
+test("get a specific member from members table", () => {
   return getMember(3).then(member => {
     expect(member.member_name).toBe("Dan");
   });
