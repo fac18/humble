@@ -42,8 +42,10 @@ function App() {
       <Container>
         <h1>humble</h1>
         <P size="--space-lg">This is our app.</P>
-        <button onClick={() => setPage(null)}>Go to landing page</button>
-        <button onClick={() => setPage("profile")}>Go to profile page</button>
+        <button onClick={() => changePage(null)}>Go to landing page</button>
+        <button onClick={() => changePage("profile")}>
+          Go to profile page
+        </button>
         {page === "profile" ? (
           <Profile
             memberName={memberName}

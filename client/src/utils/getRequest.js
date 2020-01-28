@@ -3,6 +3,7 @@
 // const domain = process.env.NODE_ENV === "production" ? production : development;
 
 // const getRequest = endpoint => {
+//   console.log(domain);
 //   return fetch(domain + endpoint)
 //     .then(res => res.json())
 //     .catch(console.log);
