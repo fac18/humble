@@ -10,9 +10,6 @@ import Profile from "../Profile/Profile";
 import Error from "../Error/Error";
 import Navbar from "../Navbar/Navbar";
 
-// import styled-components
-import Container from "../styled/Container";
-
 // import utils for API call
 import getRequest from "../../utils/getRequest";
 
@@ -43,11 +40,6 @@ function App() {
 
   return (
     <main className="app">
-      <Container>
-        <h1>humble</h1>
-        <P size="--space-lg">This is our app.</P>
-      </Container>
-
       <Switch>
         <Route path="/" component={Landing} exact />
         <Route path="/about" component={About} />

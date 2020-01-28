@@ -7,6 +7,9 @@ function Navbar() {
   return (
     <ul>
       <li>
+        <Link to="/">Landing</Link>
+      </li>
+      <li>
         <Link to="/profile">Profile</Link>
       </li>
       <li>
