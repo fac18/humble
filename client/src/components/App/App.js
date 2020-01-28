@@ -14,7 +14,7 @@ import Navbar from "../Navbar/Navbar";
 import getRequest from "../../utils/getRequest";
 
 function App() {
-  const [memberId, setMemberId] = useState(4);
+  const [memberId, setMemberId] = useState(4); // hard code user
   const [memberName, setMemberName] = useState(null);
   const [memberAvatar, setMemberAvatar] = useState(null);
   const [memberEmail, setMemberEmail] = useState(null);

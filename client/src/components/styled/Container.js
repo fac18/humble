@@ -1,4 +1,4 @@
-//import styled from "styled-components";
+import styled from "styled-components";
 
 // the amphersand & is read by stylin as a reference to the parent component (i.e. Container)
 // this is the method by which we apply pseudo-classes to the styled component
@@ -18,4 +18,4 @@ const Container = styled.div`
   }
 `;
 
-//export default Container;
+export default Container;

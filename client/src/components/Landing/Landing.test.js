@@ -4,4 +4,5 @@ import Landing from "./Landing";
 
 test("component works as expected", () => {
   const { getByText } = render(<Landing />);
+  getByText("humble");
 });
