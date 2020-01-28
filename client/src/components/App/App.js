@@ -41,9 +41,15 @@ function App() {
   return (
     <main className="app">
       <Switch>
-        <Route path="/" component={Landing} exact />
-        <Route path="/about" component={About} />
-        <Route path="/search" component={Search} />
+        <Route path="/" exact>
+          <Landing />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/search">
+          <Search />
+        </Route>
         <Route path="/profile">
           <Profile
             memberName={memberName}
