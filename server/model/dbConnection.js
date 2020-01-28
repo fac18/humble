@@ -1,7 +1,7 @@
 const { Pool } = require("pg");
 const url = require("url");
 
-// check environment and assign database URL accordingly
+// check environment and load env variables/assign database URL accordingly
 const isTravis = process.env.NODE_ENV === "travis";
 const isProduction = process.env.NODE_ENV === "production";
 
