@@ -27,8 +27,10 @@
   },
   "homepage": "https://github.com/fac18/humble#readme",
   "dependencies": {
-    "env2": "^2.2.2",
     "express": "^4.17.1",
     "pg": "^7.17.1"
+  },
+  "devDependencies": {
+    "env2": "^2.2.2"
   }
 }
