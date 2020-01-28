@@ -8,6 +8,10 @@ import About from "../About";
 import Search from "../Search";
 import Profile from "../Profile";
 import Error from "../Error";
+import P from "../styled/P";
+import Container from "../styled/Container";
+
+import getRequest from "../../utils/getRequest";
 
 //import getRequest from "../../utils/getRequest";
 
@@ -22,6 +26,13 @@ function App() {
         <Route component={Error} />
       </Switch>
     </main>
+
+    // <div className="app">
+    //   <Container>
+    //     <P size="--space-lg">This is our app.</P>
+    //     {dan ? <P>One of the members is called {dan}.</P> : null}
+    //   </Container>
+    // </div>
   );
 }
 

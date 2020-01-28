@@ -1,3 +1,4 @@
+// check environment and assign domain accordingly
 const production = "https://wearehumble.herokuapp.com";
 const development = "http://localhost:3001";
 const domain = process.env.NODE_ENV === "production" ? production : development;
