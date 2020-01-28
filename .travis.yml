@@ -9,4 +9,4 @@ cache:
     - server/node_modules
     - client/node_modules
 script:
-  - cd client && npm i && npm run travis:test && cd ../server && npm i && npm run travis:test
+  - cd client && npm i && npm run travis:test -- --coverage --watchAll=false && codecov && cd ../server && npm i && npm run travis:test  -- --coverage --watchAll=false && codecov
