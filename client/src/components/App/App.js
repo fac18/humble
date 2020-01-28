@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+import P from "../styled/P";
+import Container from "../styled/Container";
+
 import getRequest from "../../utils/getRequest";
 
 function App() {
@@ -14,8 +17,10 @@ function App() {
 
   return (
     <div className="app">
-      <p>This is our app.</p>
-      {dan ? <p>One of the members is called {dan}.</p> : null}
+      <Container>
+        <P size="--space-lg">This is our app.</P>
+        {dan ? <P>One of the members is called {dan}.</P> : null}
+      </Container>
     </div>
   );
 }
