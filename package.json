@@ -29,6 +29,7 @@
   "dependencies": {
     "env2": "^2.2.2",
     "express": "^4.17.1",
+    "nodemon": "^2.0.2",
     "pg": "^7.17.1"
   }
 }
