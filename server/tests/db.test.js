@@ -15,13 +15,13 @@ test("get a specific member from members table", () => {
 });
 
 test("get member's offers", () => {
-  return getOffer(2).then(offer => {
-    expect(offer.offer_name).toBe("football");
+  return getOffer(2).then(offers => {
+    expect(offers[0].offer_name).toBe("football");
   });
 });
 
 test("get member's requests", () => {
   return getRequest(4).then(requests => {
-    expect(requests.request_name).toBe("drawing");
+    expect(requests[0].request_name).toBe("drawing");
   });
 });
