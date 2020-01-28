@@ -17,7 +17,9 @@ router.get("/get-profile", (req, res) => {
     getMember(memberId),
     getOffer(memberId),
     getRequest(memberId)
-  ]).then(data => res.json(data));
+  ]).then(data => {
+    res.json(data);
+  });
 });
 
 router.get("/", (req, res) => {

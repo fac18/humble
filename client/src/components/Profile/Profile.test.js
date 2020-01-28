@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import Profile from "./Profile";
 
-test("component works as expected", () => {
+test("profile page renders something", () => {
   const { getByText } = render(<Profile />);
+  getByText("My offers:");
 });

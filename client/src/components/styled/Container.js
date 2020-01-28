@@ -6,6 +6,8 @@ import styled from "styled-components";
 // cf. https://styled-components.com/docs/basics#coming-from-css (scroll down to 'Pseudoelements...')
 
 const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
   background-color: var(--secondary);
   opacity: 0.8;
   padding: var(--component-padding);
