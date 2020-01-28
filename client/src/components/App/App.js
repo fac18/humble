@@ -19,39 +19,15 @@ function App() {
 
   useEffect(() => {
     getRequest(`/get-member?member_id=${memberId}`).then(res => {
-      console.log(res);
       setMemberName(res.member_name);
-    });
-  }, []);
-
-  useEffect(() => {
-    getRequest(`/get-member?member_id=${memberId}`).then(res => {
-      setMemberName(res.member_name);
-    });
-  }, []);
-
-  useEffect(() => {
-    getRequest(`/get-member?member_id=${memberId}`).then(res => {
       setMemberAvatar(res.avatar_url);
-    });
-  }, []);
-
-  useEffect(() => {
-    getRequest(`/get-member?member_id=${memberId}`).then(res => {
       setMemberEmail(res.email);
-    });
-  }, []);
-
-  useEffect(() => {
-    getRequest(`/get-member?member_id=${memberId}`).then(res => {
       setMemberPostcode(res.postcode);
     });
   }, []);
 
   useEffect(() => {
     getRequest(`/get-profile?member_id=${memberId}`).then(res => {
-      // console.log(res[2]);
-      // console.log(res[1][0].offer_name);
       setMemberOffers(res[1]);
       setMemberRequests(res[2]);
     });
