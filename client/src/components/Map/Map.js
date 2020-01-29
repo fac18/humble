@@ -45,3 +45,4 @@ export class GoogleMap extends Component {
     );
   }
 }
+
