@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
+import UserCard from "../styled/UserCard";
+import Container from "../styled/Container";
 
 function Search() {
   const [membersInfo, setMembersInfo] = useState(null);
@@ -26,12 +28,31 @@ function Search() {
   if (!membersInfo) return <h1>Loading...</h1>;
 
   return (
-    <div>
-      <p>{membersInfo[0].memberName}</p>
-      <img src={membersInfo[0].memberAvatar}></img>
-      <p>{membersInfo[0].memberPostcode}</p>
-      <p>{membersInfo[0].memberOffers}</p>
-    </div>
+    <React.Fragment>
+      <UserCard>
+        <img
+          style={{ height: "15vh", width: "auto" }}
+          src={membersInfo[0].memberAvatar}
+        />
+        <div style={{ flexFlow: "column" }}>
+          <p>{membersInfo[0].memberName}</p>
+          <p>{membersInfo[0].memberPostcode}</p>
+          <p>{membersInfo[0].memberOffers}</p>
+        </div>
+      </UserCard>
+
+      <UserCard>
+        <img
+          style={{ height: "15vh", width: "auto" }}
+          src={membersInfo[1].memberAvatar}
+        />
+        <div style={{ flexFlow: "column" }}>
+          <p>{membersInfo[1].memberName}</p>
+          <p>{membersInfo[1].memberPostcode}</p>
+          <p>{membersInfo[1].memberOffers}</p>
+        </div>
+      </UserCard>
+    </React.Fragment>
   );
 }
 
