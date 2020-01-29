@@ -24,3 +24,9 @@ test("test profile endpoint path works", () => {
     expect(response.statusCode).toBe(200);
   });
 });
+
+test("test search-offer endpoint path works", () => {
+  return request.get("/search-offer?category_id=3").then(response => {
+    expect(response.statusCode).toBe(200);
+  });
+});
