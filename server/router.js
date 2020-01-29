@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/search-offer-all", (req, res) => {
-  searchOfferAll.then(data => {
+  searchOfferAll().then(data => {
     res.json(data);
   });
 });

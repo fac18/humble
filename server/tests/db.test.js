@@ -33,7 +33,7 @@ test("get member's requests", () => {
 });
 
 test("search for all offers", () => {
-  return searchOfferAll.then(requests => {
+  return searchOfferAll().then(requests => {
     expect(requests[0].offer_name).toBe("painting");
   });
 });
