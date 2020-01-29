@@ -31,7 +31,7 @@ test("test search-offer-all endpoint path works", () => {
   });
 });
 
-test("test search-offer endpoint path works", () => {
+test("test search-offer-category endpoint path works", () => {
   return request.get("/search-offer-category?category_id=3").then(response => {
     expect(response.statusCode).toBe(200);
   });
