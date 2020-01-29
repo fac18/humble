@@ -32,8 +32,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/search-offer", (req, res) => {
-  const category = req.query.category;
-  searchOffer(category).then(data => {
+  const categoryId = req.query.categoryId;
+  searchOffer(categoryId).then(data => {
     res.json(data);
   });
 });
