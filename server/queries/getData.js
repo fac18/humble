@@ -33,10 +33,9 @@ const searchOfferCategory = category => {
       "SELECT members.member_id, members.member_name, members.avatar_url, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id WHERE offers.category_id=$1",
       [category]
     )
-    .then(data => data.rows)
-    .then(console.log);
+    .then(data => data.rows);
 };
-searchOfferCategory(3);
+
 module.exports = {
   getMember,
   getOffer,
