@@ -29,29 +29,18 @@ function Search() {
 
   return (
     <React.Fragment>
-      <UserCard>
-        <img
-          style={{ height: "15vh", width: "auto" }}
-          src={membersInfo[0].memberAvatar}
-        />
-        <div style={{ flexFlow: "column" }}>
-          <p>{membersInfo[0].memberName}</p>
-          <p>{membersInfo[0].memberPostcode}</p>
-          <p>{membersInfo[0].memberOffers}</p>
-        </div>
-      </UserCard>
-
-      <UserCard>
-        <img
-          style={{ height: "15vh", width: "auto" }}
-          src={membersInfo[1].memberAvatar}
-        />
-        <div style={{ flexFlow: "column" }}>
-          <p>{membersInfo[1].memberName}</p>
-          <p>{membersInfo[1].memberPostcode}</p>
-          <p>{membersInfo[1].memberOffers}</p>
-        </div>
-      </UserCard>
+      {membersInfo.map(member => {
+        return (
+          <UserCard>
+            <img src={member.memberAvatar} />
+            <div>
+              <p>{member.memberName}</p>
+              <p>{member.memberPostcode}</p>
+              <p>{member.memberOffers}</p>
+            </div>
+          </UserCard>
+        );
+      })}
     </React.Fragment>
   );
 }

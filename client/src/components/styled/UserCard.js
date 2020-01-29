@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const UserCard = styled.div`
+const UserCard = styled.section`
   display: flex;
   flex-flow: row nowrap;
   background-color: var(--secondary);
