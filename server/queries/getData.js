@@ -36,7 +36,7 @@ const searchOfferCategory = category => {
     .then(data => data.rows)
     .then(console.log);
 };
-searchOffer(3);
+searchOfferCategory(3);
 module.exports = {
   getMember,
   getOffer,

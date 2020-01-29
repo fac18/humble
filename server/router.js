@@ -5,7 +5,7 @@ const {
   getMember,
   getOffer,
   getRequest,
-  searchOffer
+  searchOfferCategory
 } = require("./queries/getData");
 
 router.get("/get-member", (req, res) => {
@@ -31,9 +31,9 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-router.get("/search-offer", (req, res) => {
+router.get("/search-offer-category", (req, res) => {
   const categoryId = req.query.categoryId;
-  searchOffer(categoryId).then(data => {
+  searchOfferCategory(categoryId).then(data => {
     res.json(data);
   });
 });
