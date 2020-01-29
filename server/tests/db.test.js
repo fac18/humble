@@ -2,7 +2,12 @@ const fs = require("fs");
 const dbQuery = require("../model/dbQuery");
 const schema = fs.readFileSync(`${__dirname}/../model/schema.sql`).toString();
 
-const { getMember, getOffer, getRequest } = require("../queries/getData");
+const {
+  getMember,
+  getOffer,
+  getRequest,
+  searchOffer
+} = require("../queries/getData");
 
 beforeEach(() => {
   return dbQuery(schema);
@@ -23,5 +28,11 @@ test("get member's offers", () => {
 test("get member's requests", () => {
   return getRequest(4).then(requests => {
     expect(requests[0].request_name).toBe("drawing");
+  });
+});
+
+test("search for offers", () => {
+  return searchOffer(3).then(requests => {
+    expect(requests[0].offer_name).toBe("football");
   });
 });
