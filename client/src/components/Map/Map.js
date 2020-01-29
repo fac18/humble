@@ -1,15 +1,21 @@
 import React, { Component, createRef } from "react";
-import "./Map.css";
+//import "./Map.css";
 
-const GOOGLE_MAP_API_KEY = AIzaSyASa9m5akT8pSnC7lhiUUPN8ajPneNEI_U;
+//const GOOGLE_MAP_API_KEY = AIzaSyASa9m5akT8pSnC7lhiUUPN8ajPneNEI_U;
 
 export class GoogleMap extends Component {
-  googleMapRef = createRef();
+  googleMapRef = React.createRef();
 
   componentDidMount() {
     const googleMapScript = document.createElement("script");
 
     googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_API_KEY}&libraries=places`;
+
+    window.document.body.appendChild(googleScript)
+
+    googleScript.addEventListener('load', {
+        this.googleMap = this.createGoogleMap()
+    })
   }
 
   createGoogleMap = () =>
