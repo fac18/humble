@@ -27,8 +27,15 @@ const getRequest = id => {
     .then(data => data.rows);
 };
 
+const searchOffer = category => {
+  return dbConnection
+    .query("SELECT * FROM offers WHERE category_id=$1", [category])
+    .then(data => data.rows);
+};
+
 module.exports = {
   getMember,
   getOffer,
-  getRequest
+  getRequest,
+  searchOffer
 };
