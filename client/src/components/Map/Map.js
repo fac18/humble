@@ -1,7 +1,7 @@
 import React, { Component, createRef } from "react";
-//import "./Map.css";
+import "./Map.css";
 
-//const GOOGLE_MAP_API_KEY = AIzaSyASa9m5akT8pSnC7lhiUUPN8ajPneNEI_U;
+const GOOGLE_MAP_API_KEY = AIzaSyASa9m5akT8pSnC7lhiUUPN8ajPneNEI_U;
 
 export class GoogleMap extends Component {
   googleMapRef = React.createRef();
@@ -27,6 +27,12 @@ export class GoogleMap extends Component {
       },
       disableDefaultUI: true
     });
+
+    createMarker = () => new window.google.maps.Marker({
+        position: { lat: 51.5637, lng: -0.1077 },
+        map: this.googleMap,
+        title: 'founders and coders' 
+    })
 
   render() {
     return (
