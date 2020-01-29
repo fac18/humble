@@ -14,7 +14,8 @@ export class GoogleMap extends Component {
     window.document.body.appendChild(googleScript)
 
     googleScript.addEventListener('load', {
-        this.googleMap = this.createGoogleMap()
+        this.googleMap = this.createGoogleMap(),
+        this.marker = this.createMarker()
     })
   }
 
