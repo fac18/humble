@@ -6,7 +6,7 @@ const {
   getMember,
   getOffer,
   getRequest,
-  searchOffer
+  searchOfferCategory
 } = require("../queries/getData");
 
 beforeEach(() => {
@@ -31,8 +31,8 @@ test("get member's requests", () => {
   });
 });
 
-test("search for offers", () => {
-  return searchOffer(3).then(requests => {
+test("search for offers by category", () => {
+  return searchOfferCategory(3).then(requests => {
     expect(requests[0].offer_name).toBe("football");
   });
 });
