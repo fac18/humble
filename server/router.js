@@ -5,6 +5,7 @@ const {
   getMember,
   getOffer,
   getRequest,
+  searchOfferAll,
   searchOfferCategory
 } = require("./queries/getData");
 
@@ -29,6 +30,12 @@ router.get("/get-profile", (req, res) => {
 
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+router.get("/search-offer-all", (req, res) => {
+  searchOfferAll.then(data => {
+    res.json(data);
+  });
 });
 
 router.get("/search-offer-category", (req, res) => {
