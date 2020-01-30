@@ -8,7 +8,7 @@ test("component works as expected", () => {
   const history = createMemoryHistory();
   const { getByText } = render(
     <Router history={history}>
-      <Landing />
+      <About />
     </Router>
   );
   getByText("About");
