@@ -33,11 +33,7 @@ function Search() {
   return (
     <React.Fragment>
       {viewUser ? (
-        <UserProfile
-          user={viewUser}
-          viewUser={viewUser}
-          setViewUser={setViewUser}
-        />
+        <UserProfile user={viewUser} setViewUser={setViewUser} />
       ) : (
         <>
           <Container>
@@ -60,6 +56,11 @@ function Search() {
                     <option
                       value={category.category_id}
                       key={category.category_id}
+                      selected={
+                        activeCategory === category.category_id
+                          ? "selected"
+                          : ""
+                      }
                     >
                       {category.category_name}
                     </option>
@@ -107,6 +108,11 @@ function Search() {
                     <option
                       value={category.category_id}
                       key={category.category_id}
+                      selected={
+                        activeCategory === category.category_id
+                          ? "selected"
+                          : ""
+                      }
                     >
                       {category.category_name}
                     </option>

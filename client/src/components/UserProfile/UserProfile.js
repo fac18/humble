@@ -9,7 +9,7 @@ import H1 from "../styled/H1";
 import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 
-const UserProfile = ({ user, viewUser, setViewUser }) => {
+const UserProfile = ({ user, setViewUser }) => {
   const [userName, setUserName] = useState(null);
   const [userAvatar, setUserAvatar] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
