@@ -23,7 +23,7 @@ function Search() {
         memberOffers: "painting"
       }
     ]);
-  });
+  }, []);
 
   if (!membersInfo) return <h1>Loading...</h1>;
 
