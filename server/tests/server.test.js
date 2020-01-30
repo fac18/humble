@@ -25,6 +25,12 @@ test("test profile endpoint path works", () => {
   });
 });
 
+test("test category-list endpoint path works", () => {
+  return request.get("/category-list").then(response => {
+    expect(response.statusCode).toBe(200);
+  });
+});
+
 test("test search-offer-all endpoint path works", () => {
   return request.get("/search-offer-all").then(response => {
     expect(response.statusCode).toBe(200);
