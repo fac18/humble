@@ -50,7 +50,10 @@ function Search() {
             ? allRequestsCards.map(member => {
                 return (
                   <UserCard>
-                    <img src={member.avatar_url} />
+                    <img
+                      src={member.avatar_url}
+                      alt={`${member.member_name}'s avatar`}
+                    />
                     <div>
                       <p>{member.member_name}</p>
                       <p>{member.category_name}</p>
@@ -63,7 +66,10 @@ function Search() {
             : allRequestsCards.map(member => {
                 return member.category_id === activeCategory ? (
                   <UserCard>
-                    <img src={member.avatar_url} />
+                    <img
+                      src={member.avatar_url}
+                      alt={`${member.member_name}'s avatar`}
+                    />
                     <div>
                       <p>{member.member_name}</p>
                       <p>{member.category_name}</p>
@@ -94,7 +100,10 @@ function Search() {
             ? allOffersCards.map(member => {
                 return (
                   <UserCard>
-                    <img src={member.avatar_url} />
+                    <img
+                      src={member.avatar_url}
+                      alt={`${member.member_name}'s avatar`}
+                    />
                     <div>
                       <p>{member.member_name}</p>
                       <p>{member.category_name}</p>
@@ -107,7 +116,10 @@ function Search() {
             : allOffersCards.map(member => {
                 return member.category_id === activeCategory ? (
                   <UserCard>
-                    <img src={member.avatar_url} />
+                    <img
+                      src={member.avatar_url}
+                      alt={`${member.member_name}'s avatar`}
+                    />
                     <div>
                       <p>{member.member_name}</p>
                       <p>{member.category_name}</p>
