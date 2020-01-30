@@ -5,6 +5,7 @@ const {
   getMember,
   getOffer,
   getRequest,
+  categoryList,
   searchOfferAll,
   searchOfferCategory
 } = require("./queries/getData");
