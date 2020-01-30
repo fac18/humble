@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 const NavIcon = styled.div`
-  font-size: var(--font-h1);
-  background: var(--secondary);
-  min-width: 100%;
-  min-height: 100%;
+  color: var(--primary);
+  font-size: var(--font-h2);
 `;
 
 export default NavIcon;

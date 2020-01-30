@@ -8,21 +8,21 @@ import NavIcon from "../styled/NavIcon";
 function Navbar() {
   return (
     <NavContainer direction="row">
-      <NavIcon>
-        <Link to="/profile">
+      <Link to="/profile">
+        <NavIcon>
           <i class="fas fa-user" />
-        </Link>
-      </NavIcon>
-      <NavIcon>
-        <Link to="/search">
+        </NavIcon>
+      </Link>
+      <Link to="/search">
+        <NavIcon>
           <i class="fas fa-search" />
-        </Link>
-      </NavIcon>
-      <NavIcon>
-        <Link to="/about">
+        </NavIcon>
+      </Link>
+      <Link to="/about">
+        <NavIcon>
           <i class="fas fa-info" />
-        </Link>
-      </NavIcon>
+        </NavIcon>
+      </Link>
     </NavContainer>
   );
 }
