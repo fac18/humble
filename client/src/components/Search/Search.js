@@ -55,7 +55,7 @@ function Search() {
               {!activeCategory
                 ? allRequestsCards.map(member => {
                     return (
-                      <UserCard>
+                      <UserCard onClick={() => setViewUser(!viewUser)}>
                         <img src={member.avatar_url} />
                         <div>
                           <p>{member.member_name}</p>
