@@ -1,7 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { getMember, getOffer, getRequest } = require("./queries/getData");
+const {
+  getMember,
+  getOffer,
+  getRequest,
+  categoryList,
+  searchOfferAll,
+  searchOfferCategory,
+  searchRequestAll
+} = require("./queries/getData");
 
 router.get("/get-member", (req, res) => {
   const memberId = req.query.member_id;
@@ -24,6 +32,31 @@ router.get("/get-profile", (req, res) => {
 
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+router.get("/category-list", (req, res) => {
+  categoryList().then(data => {
+    res.json(data);
+  });
+});
+
+router.get("/search-offer-all", (req, res) => {
+  searchOfferAll().then(data => {
+    res.json(data);
+  });
+});
+
+router.get("/search-offer-category", (req, res) => {
+  const categoryId = req.query.categoryId;
+  searchOfferCategory(categoryId).then(data => {
+    res.json(data);
+  });
+});
+
+router.get("/search-request-all", (req, res) => {
+  searchRequestAll().then(data => {
+    res.json(data);
+  });
 });
 
 module.exports = router;

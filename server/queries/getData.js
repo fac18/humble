@@ -27,8 +27,43 @@ const getRequest = id => {
     .then(data => data.rows);
 };
 
+const categoryList = () => {
+  return dbConnection
+    .query("SELECT category_id, category_name FROM categories")
+    .then(data => data.rows);
+};
+
+const searchOfferAll = () => {
+  return dbConnection
+    .query(
+      "SELECT members.member_id, members.member_name, members.postcode, members.avatar_url, categories.category_id, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id"
+    )
+    .then(data => data.rows);
+};
+
+const searchOfferCategory = category => {
+  return dbConnection
+    .query(
+      "SELECT members.member_id, members.member_name, members.postcode, members.avatar_url, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id WHERE offers.category_id=$1",
+      [category]
+    )
+    .then(data => data.rows);
+};
+
+const searchRequestAll = () => {
+  return dbConnection
+    .query(
+      "SELECT members.member_id, members.member_name, members.postcode, members.avatar_url, categories.category_id, categories.category_name, requests.request_name, requests.request_description FROM requests JOIN members ON members.member_id=requests.member_id JOIN categories ON categories.category_id=requests.category_id"
+    )
+    .then(data => data.rows);
+};
+
 module.exports = {
   getMember,
   getOffer,
-  getRequest
+  getRequest,
+  categoryList,
+  searchOfferAll,
+  searchOfferCategory,
+  searchRequestAll
 };
