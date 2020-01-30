@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Search.css";
 import UserCard from "../styled/UserCard";
 import getRequest from "../../utils/getRequest";
+import UserProfile from "../UserProfile/UserProfile";
 
 function Search() {
   const [allOffersCards, setAllOffersCards] = useState(null);
@@ -22,100 +23,111 @@ function Search() {
 
   return (
     <React.Fragment>
-      <div>
-        <h2>Search for things that people want</h2>
-        <button onClick={() => setToggleShare(!toggleShare)}>
-          {toggleShare ? "help with" : "to share"}
-        </button>
-      </div>
-
-      {toggleShare ? (
-        <>
-          <h2>Choose a category:</h2>
-          <select
-            onChange={e => {
-              setActiveCategory(Number(e.target.value));
-            }}
-          >
-            {allCategories.map(category => {
-              return (
-                <option value={category.category_id} key={category.category_id}>
-                  {category.category_name}
-                </option>
-              );
-            })}
-          </select>
-          {!activeCategory
-            ? allRequestsCards.map(member => {
-                return (
-                  <UserCard>
-                    <img src={member.avatar_url} />
-                    <div>
-                      <p>{member.member_name}</p>
-                      <p>{member.category_name}</p>
-                      <p>{member.request_name}</p>
-                      <p>{member.postcode}</p>
-                    </div>
-                  </UserCard>
-                );
-              })
-            : allRequestsCards.map(member => {
-                return member.category_id === activeCategory ? (
-                  <UserCard>
-                    <img src={member.avatar_url} />
-                    <div>
-                      <p>{member.member_name}</p>
-                      <p>{member.category_name}</p>
-                      <p>{member.request_name}</p>
-                      <p>{member.postcode}</p>
-                    </div>
-                  </UserCard>
-                ) : null;
-              })}
-        </>
+      {viewUser ? (
+        <UserProfile />
       ) : (
         <>
-          <h2>Choose a category:</h2>
-          <select
-            onChange={e => {
-              setActiveCategory(Number(e.target.value));
-            }}
-          >
-            {allCategories.map(category => {
-              return (
-                <option value={category.category_id} key={category.category_id}>
-                  {category.category_name}
-                </option>
-              );
-            })}
-          </select>
-          {!activeCategory
-            ? allOffersCards.map(member => {
-                return (
-                  <UserCard>
-                    <img src={member.avatar_url} />
-                    <div>
-                      <p>{member.member_name}</p>
-                      <p>{member.category_name}</p>
-                      <p>{member.offer_name}</p>
-                      <p>{member.postcode}</p>
-                    </div>
-                  </UserCard>
-                );
-              })
-            : allOffersCards.map(member => {
-                return member.category_id === activeCategory ? (
-                  <UserCard>
-                    <img src={member.avatar_url} />
-                    <div>
-                      <p>{member.member_name}</p>
-                      <p>{member.category_name}</p>
-                      <p>{member.offer_name}</p>
-                      <p>{member.postcode}</p>
-                    </div>
-                  </UserCard>
-                ) : null;
-              })}
+          <div>
+            <h2>Search for things that people want</h2>
+            <button onClick={() => setToggleShare(!toggleShare)}>
+              {toggleShare ? "help with" : "to share"}
+            </button>
+          </div>
+          {toggleShare ? (
+            <>
+              <h2>Choose a category:</h2>
+              <select
+                onChange={e => {
+                  setActiveCategory(Number(e.target.value));
+                }}
+              >
+                {allCategories.map(category => {
+                  return (
+                    <option
+                      value={category.category_id}
+                      key={category.category_id}
+                    >
+                      {category.category_name}
+                    </option>
+                  );
+                })}
+              </select>
+              {!activeCategory
+                ? allRequestsCards.map(member => {
+                    return (
+                      <UserCard>
+                        <img src={member.avatar_url} />
+                        <div>
+                          <p>{member.member_name}</p>
+                          <p>{member.category_name}</p>
+                          <p>{member.request_name}</p>
+                          <p>{member.postcode}</p>
+                        </div>
+                      </UserCard>
+                    );
+                  })
+                : allRequestsCards.map(member => {
+                    return member.category_id === activeCategory ? (
+                      <UserCard>
+                        <img src={member.avatar_url} />
+                        <div>
+                          <p>{member.member_name}</p>
+                          <p>{member.category_name}</p>
+                          <p>{member.request_name}</p>
+                          <p>{member.postcode}</p>
+                        </div>
+                      </UserCard>
+                    ) : null;
+                  })}
+            </>
+          ) : (
+            <>
+              <h2>Choose a category:</h2>
+              <select
+                onChange={e => {
+                  setActiveCategory(Number(e.target.value));
+                }}
+              >
+                {allCategories.map(category => {
+                  return (
+                    <option
+                      value={category.category_id}
+                      key={category.category_id}
+                    >
+                      {category.category_name}
+                    </option>
+                  );
+                })}
+              </select>
+              {!activeCategory
+                ? allOffersCards.map(member => {
+                    return (
+                      <UserCard>
+                        <img src={member.avatar_url} />
+                        <div>
+                          <p>{member.member_name}</p>
+                          <p>{member.category_name}</p>
+                          <p>{member.offer_name}</p>
+                          <p>{member.postcode}</p>
+                        </div>
+                      </UserCard>
+                    );
+                  })
+                : allOffersCards.map(member => {
+                    return member.category_id === activeCategory ? (
+                      <UserCard>
+                        <img src={member.avatar_url} />
+                        <div>
+                          <p>{member.member_name}</p>
+                          <p>{member.category_name}</p>
+                          <p>{member.offer_name}</p>
+                          <p>{member.postcode}</p>
+                        </div>
+                      </UserCard>
+                    ) : null;
+                  })}
+            </>
+          )}
         </>
       )}
     </React.Fragment>
