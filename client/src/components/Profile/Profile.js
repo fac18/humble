@@ -14,7 +14,9 @@ function Profile({
   return (
     <React.Fragment>
       {memberName ? <p>{memberName}'s Profile</p> : null}
-      {memberAvatar ? <img src={memberAvatar} /> : null}
+      {memberAvatar ? (
+        <img src={memberAvatar} alt={`${memberName}'s avatar`} />
+      ) : null}
       {memberEmail ? <p>Contact email: {memberEmail}.</p> : null}
       {memberPostcode ? <p>Location: {memberPostcode}</p> : null}
       <p>My offers:</p>
