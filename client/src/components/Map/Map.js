@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+/*import React, { useEffect, useRef } from "react";
 import "./Map.css";
 
 const GOOGLE_MAP_API_KEY = "AIzaSyC8mv0ICHNZs-6vnS_i-JGbwzV4v90blLQ";
@@ -60,4 +60,4 @@ function GoogleMaps(props) {
   return <div id="google-map" ref={googleMapRef} style={mapStyles} />;
 }
 
-export default GoogleMaps;
+export default GoogleMaps;*/
