@@ -14,13 +14,14 @@ const About = () => {
         <H1>About</H1>
         <P>
           Welcome to humble. Our goal is to promote community solidarity. We
-          have built a platform to help facilitate real-life human interactions
-          that are non-transactional in nature.
+          hope to help communities become kinder, more supportive and joyful.
+          This platform has been built to facilitate real-life human
+          interactions that are non-transactional in nature.
         </P>
         <P>
-          We want to help communities share their life skills, experience and
-          knowledge amongst themselves for free, without the exchange of money,
-          on a non-commercial basis.
+          We aim to help communities share their life skills, experience and
+          knowledge amongst themselves free of charge, without the exchange of
+          money, on a non-commercial basis.
         </P>
         <P>
           If you would like to join our platform, please read and confirm your

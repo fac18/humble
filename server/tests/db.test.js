@@ -6,8 +6,10 @@ const {
   getMember,
   getOffer,
   getRequest,
+  categoryList,
   searchOfferAll,
-  searchOfferCategory
+  searchOfferCategory,
+  searchRequestAll
 } = require("../queries/getData");
 
 beforeEach(() => {
@@ -32,6 +34,12 @@ test("get member's requests", () => {
   });
 });
 
+test("get list of categories", () => {
+  return categoryList().then(requests => {
+    expect(requests[0].category_id).toBe(1);
+  });
+});
+
 test("search for all offers", () => {
   return searchOfferAll().then(requests => {
     expect(requests[0].offer_name).toBe("painting");
@@ -41,5 +49,11 @@ test("search for all offers", () => {
 test("search for offers by category", () => {
   return searchOfferCategory(3).then(requests => {
     expect(requests[0].offer_name).toBe("football");
+  });
+});
+
+test("search for all requests", () => {
+  return searchRequestAll().then(requests => {
+    expect(requests[0].request_name).toBe("drawing");
   });
 });
