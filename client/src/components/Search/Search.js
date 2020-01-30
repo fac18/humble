@@ -47,6 +47,7 @@ function Search() {
             <>
               <H2>Choose a category:</H2>
               <select
+                aria-label="Select things that people want help with"
                 onChange={e => {
                   setActiveCategory(Number(e.target.value));
                 }}
@@ -71,7 +72,10 @@ function Search() {
                 ? allRequestsCards.map(member => {
                     return (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img src={member.avatar_url} />
+                        <img
+                          src={member.avatar_url}
+                          alt={`${member.member_name}'s avatar`}
+                        />
                         <Container>
                           <P>{member.member_name}</P>
                           <P>{member.category_name}</P>
@@ -84,7 +88,10 @@ function Search() {
                 : allRequestsCards.map(member => {
                     return member.category_id === activeCategory ? (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img src={member.avatar_url} />
+                        <img
+                          src={member.avatar_url}
+                          alt={`${member.member_name}'s avatar`}
+                        />
                         <Container>
                           <P>{member.member_name}</P>
                           <P>{member.category_name}</P>
@@ -99,6 +106,7 @@ function Search() {
             <>
               <H2>Choose a category:</H2>
               <select
+                aria-label="Select things that people want to share"
                 onChange={e => {
                   setActiveCategory(Number(e.target.value));
                 }}
@@ -123,7 +131,10 @@ function Search() {
                 ? allOffersCards.map(member => {
                     return (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img src={member.avatar_url} />
+                        <img
+                          src={member.avatar_url}
+                          alt={`${member.member_name}'s avatar`}
+                        />
                         <Container>
                           <P>{member.member_name}</P>
                           <P>{member.category_name}</P>
@@ -136,7 +147,10 @@ function Search() {
                 : allOffersCards.map(member => {
                     return member.category_id === activeCategory ? (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img src={member.avatar_url} />
+                        <img
+                          src={member.avatar_url}
+                          alt={`${member.member_name}'s avatar`}
+                        />
                         <Container>
                           <P>{member.member_name}</P>
                           <P>{member.category_name}</P>

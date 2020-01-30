@@ -10,17 +10,17 @@ function Navbar() {
     <NavContainer direction="row" justify="space-around">
       <Link to="/profile">
         <NavIcon>
-          <i class="fas fa-user" />
+          <i className="fas fa-user" />
         </NavIcon>
       </Link>
       <Link to="/search">
         <NavIcon>
-          <i class="fas fa-search" />
+          <i className="fas fa-search" />
         </NavIcon>
       </Link>
       <Link to="/about">
         <NavIcon>
-          <i class="fas fa-info" />
+          <i className="fas fa-info" />
         </NavIcon>
       </Link>
     </NavContainer>
