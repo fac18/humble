@@ -69,7 +69,8 @@ function GoogleMaps(props) {
         return err;
       });
 
-  const createMarker = () =>
+  const createMarker = postcode => {
+    const coordsPromise = postcodeConverter(postcode);
     new window.google.maps.Marker({
       position: {
         lat: myLocation.lat,
@@ -78,6 +79,7 @@ function GoogleMaps(props) {
       },
       map: googleMap.current
     });
+  };
 
   // useEffect Hook
   useEffect(() => {
