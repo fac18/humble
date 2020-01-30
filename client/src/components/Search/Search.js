@@ -7,17 +7,25 @@ function Search() {
   const [allOffersCards, setAllOffersCards] = useState(null);
   const [allCategories, setAllCategories] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [allRequestCards, setAllRequestCards] = useState(null);
+  const [toggleShare, setToggleShare] = useState(false);
 
   useEffect(() => {
     getRequest("/category-list").then(res => setAllCategories(res));
 
     getRequest("/search-offer-all").then(res => setAllOffersCards(res));
+
+    getRequest("/search-request-all").then(res => setAllRequestCards(res));
   }, []);
 
-  if (!allCategories || !allOffersCards) return <h1>Loading...</h1>;
+  if (!allCategories || !allOffersCards || !allRequestCards)
+    return <h1>Loading...</h1>;
 
   return (
     <React.Fragment>
+      <button onClick={() => setToggleShare(!toggleShare)}>
+        {toggleShare ? "Request" : "Offer"}
+      </button>
       <select
         onChange={e => {
           setActiveCategory(Number(e.target.value));
