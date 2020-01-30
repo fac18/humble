@@ -1,4 +1,4 @@
-import React, { Component, createRef } from "react";
+/*import React, { Component, createRef } from "react";
 import "./Map.css";
 
 const GOOGLE_MAP_API_KEY = AIzaSyASa9m5akT8pSnC7lhiUUPN8ajPneNEI_U;
@@ -44,5 +44,4 @@ export class GoogleMap extends Component {
       />
     );
   }
-}
-
+}*/

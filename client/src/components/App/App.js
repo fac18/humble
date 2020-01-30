@@ -9,7 +9,7 @@ import Search from "../Search/Search";
 import Profile from "../Profile/Profile";
 import Error from "../Error/Error";
 import Navbar from "../Navbar/Navbar";
-import Map from "../Map/Map";
+//import Map from "../Map/Map";
 
 // import utils for API call
 import getRequest from "../../utils/getRequest";
