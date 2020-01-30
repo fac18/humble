@@ -74,8 +74,8 @@ function GoogleMaps(props) {
     return coordsPromise.then(coords => {
       new window.google.maps.Marker({
         position: {
-          lat: myLocation.lat,
-          lng: myLocation.lng,
+          lat: coords.lat,
+          lng: coords.lng,
           title: "My Location"
         },
         map: googleMap.current
