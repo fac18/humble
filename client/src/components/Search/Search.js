@@ -5,8 +5,14 @@ import Container from "../styled/Container";
 
 function Search() {
   const [membersInfo, setMembersInfo] = useState(null);
+  const [categoryDropdown, setCategoryDropdown] = useState(null);
 
   useEffect(() => {
+    setCategoryDropdown([
+      { category_id: "1", category_name: "art" },
+      { category_id: "2", category_name: "DIY" }
+    ]);
+
     setMembersInfo([
       {
         memberName: "Reggie",
@@ -29,6 +35,15 @@ function Search() {
 
   return (
     <React.Fragment>
+      <select>
+        {categoryDropdown.map(category => {
+          return (
+            <option value={category.category_id} key={category.category_id}>
+              {category.category_name}
+            </option>
+          );
+        })}
+      </select>
       {membersInfo.map(member => {
         return (
           <UserCard>
