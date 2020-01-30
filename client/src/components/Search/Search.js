@@ -4,17 +4,17 @@ import UserCard from "../styled/UserCard";
 import getRequest from "../../utils/getRequest";
 
 function Search() {
-  const [membersInfo, setMembersInfo] = useState(null);
-  const [categoryDropdown, setCategoryDropdown] = useState(null);
+  const [allOffersCards, setAllOffersCards] = useState(null);
+  const [allCategories, setAllCategories] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
-    getRequest("/category-list").then(res => setCategoryDropdown(res));
+    getRequest("/category-list").then(res => setAllCategories(res));
 
-    getRequest("/search-offer-all").then(res => setMembersInfo(res));
+    getRequest("/search-offer-all").then(res => setAllOffersCards(res));
   }, []);
 
-  if (!categoryDropdown || !membersInfo) return <h1>Loading...</h1>;
+  if (!allCategories || !allOffersCards) return <h1>Loading...</h1>;
 
   return (
     <React.Fragment>
@@ -23,7 +23,7 @@ function Search() {
           setActiveCategory(Number(e.target.value));
         }}
       >
-        {categoryDropdown.map(category => {
+        {allCategories.map(category => {
           return (
             <option value={category.category_id} key={category.category_id}>
               {category.category_name}
@@ -32,7 +32,7 @@ function Search() {
         })}
       </select>
       {!activeCategory
-        ? membersInfo.map(member => {
+        ? allOffersCards.map(member => {
             return (
               <UserCard>
                 <img src={member.avatar_url} />
@@ -44,10 +44,7 @@ function Search() {
               </UserCard>
             );
           })
-        : membersInfo.map(member => {
-            console.log("this is active category", activeCategory);
-            console.log("this is member id", member.category_id);
-            console.log("this is all members", member);
+        : allOffersCards.map(member => {
             return member.category_id === activeCategory ? (
               <UserCard>
                 <img src={member.avatar_url} />
