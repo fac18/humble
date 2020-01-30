@@ -8,7 +8,6 @@ import About from "../About/About";
 import Search from "../Search/Search";
 import Profile from "../Profile/Profile";
 import Error from "../Error/Error";
-import Navbar from "../Navbar/Navbar";
 
 // import utils for API call
 import getRequest from "../../utils/getRequest";
@@ -23,20 +22,15 @@ function App() {
   const [memberRequests, setMemberRequests] = useState(null);
 
   useEffect(() => {
-    getRequest(`/get-member?member_id=${memberId}`).then(res => {
-      setMemberName(res.member_name);
-      setMemberAvatar(res.avatar_url);
-      setMemberEmail(res.email);
-      setMemberPostcode(res.postcode);
-    });
-  }, []);
-
-  useEffect(() => {
     getRequest(`/get-profile?member_id=${memberId}`).then(res => {
+      setMemberName(res[0].member_name);
+      setMemberAvatar(res[0].avatar_url);
+      setMemberEmail(res[0].email);
+      setMemberPostcode(res[0].postcode);
       setMemberOffers(res[1]);
       setMemberRequests(res[2]);
     });
-  }, []);
+  }, [memberId]);
 
   return (
     <main className="app">
@@ -60,8 +54,6 @@ function App() {
         />
         <Route render={props => <Error />} />
       </Switch>
-
-      <Navbar />
     </main>
   );
 }

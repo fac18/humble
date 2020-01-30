@@ -1,8 +1,17 @@
 import React from "react";
 import "./Search.css";
 
+import Navbar from "../Navbar/Navbar";
+
+import Container from "../styled/Container";
+
 function Search() {
-  return <div></div>;
+  return (
+    <>
+      <Container></Container>
+      <Navbar />
+    </>
+  );
 }
 
 export default Search;

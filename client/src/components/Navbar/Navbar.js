@@ -1,24 +1,29 @@
 import React from "react";
 import "./Navbar.css";
-
 import { Link } from "react-router-dom";
+
+import NavContainer from "../styled/NavContainer";
+import NavIcon from "../styled/NavIcon";
 
 function Navbar() {
   return (
-    <ul>
-      <li>
-        <Link to="/">Landing</Link>
-      </li>
-      <li>
-        <Link to="/profile">Profile</Link>
-      </li>
-      <li>
-        <Link to="/search">Search</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-    </ul>
+    <NavContainer direction="row">
+      <NavIcon>
+        <Link to="/profile">
+          <i class="fas fa-user" />
+        </Link>
+      </NavIcon>
+      <NavIcon>
+        <Link to="/search">
+          <i class="fas fa-search" />
+        </Link>
+      </NavIcon>
+      <NavIcon>
+        <Link to="/about">
+          <i class="fas fa-info" />
+        </Link>
+      </NavIcon>
+    </NavContainer>
   );
 }
 

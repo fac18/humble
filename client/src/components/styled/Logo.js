@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
-const H1 = styled.h1.attrs(props => ({}))`
-  font-family: Comfortaa;
-  padding: var(--component-padding);
+// by merging the children prop in on component definition, there's no need to pass it in at point of render
+
+const Logo = styled.h1.attrs(props => ({
+  children: "humble"
+}))`
+  font-family: "Comfortaa Medium", "Comfortaa", sans-serif;
+  font-size: var(--font-logo);
+  padding: var(--space-sm) var(--component-padding);
+  margin: var(--component-margin);
 `;
 
 export default Logo;
