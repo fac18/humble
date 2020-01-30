@@ -27,8 +27,27 @@ const getRequest = id => {
     .then(data => data.rows);
 };
 
+const searchOfferAll = () => {
+  return dbConnection
+    .query(
+      "SELECT members.member_id, members.member_name, members.avatar_url, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id"
+    )
+    .then(data => data.rows);
+};
+
+const searchOfferCategory = category => {
+  return dbConnection
+    .query(
+      "SELECT members.member_id, members.member_name, members.avatar_url, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id WHERE offers.category_id=$1",
+      [category]
+    )
+    .then(data => data.rows);
+};
+
 module.exports = {
   getMember,
   getOffer,
-  getRequest
+  getRequest,
+  searchOfferAll,
+  searchOfferCategory
 };
