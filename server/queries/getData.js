@@ -50,11 +50,20 @@ const searchOfferCategory = category => {
     .then(data => data.rows);
 };
 
+const searchRequestAll = () => {
+  return dbConnection
+    .query(
+      "SELECT members.member_id, members.member_name, members.postcode, members.avatar_url, categories.category_name, requests.request_name, requests.request_description FROM requests JOIN members ON members.member_id=requests.member_id JOIN categories ON categories.category_id=requests.category_id"
+    )
+    .then(data => data.rows);
+};
+
 module.exports = {
   getMember,
   getOffer,
   getRequest,
   categoryList,
   searchOfferAll,
-  searchOfferCategory
+  searchOfferCategory,
+  searchRequestAll
 };
