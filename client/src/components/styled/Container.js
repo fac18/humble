@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 const Container = styled.div.attrs(props => ({
-  direction: props.direction || "column"
+  direction: props.direction || "column",
+  justify: props.justify || "space-between"
 }))`
   display: flex;
   flex-flow: ${props => props.direction} nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: ${props => props.justify};
   padding: var(--component-padding);
 `;
 

@@ -10,6 +10,8 @@ const P = styled.p.attrs(props => ({
 }))`
   color: var(--primary);
   font-size: var(${props => props.size});
+  padding: var(--space-xxxs) var(--component-padding);
+  margin: var(--space-xxxs) var(--component-margin);
 `;
 
 export default P;

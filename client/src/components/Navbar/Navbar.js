@@ -7,7 +7,7 @@ import NavIcon from "../styled/NavIcon";
 
 function Navbar() {
   return (
-    <NavContainer direction="row">
+    <NavContainer direction="row" justify="space-around">
       <Link to="/profile">
         <NavIcon>
           <i class="fas fa-user" />

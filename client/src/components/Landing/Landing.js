@@ -9,21 +9,22 @@ import Logo from "../styled/Logo";
 import Container from "../styled/Container";
 import Input from "../styled/Input";
 import Form from "../styled/Form";
-import Navbar from "../Navbar/Navbar";
+import TextLink from "../styled/TextLink";
 
 const Landing = () => (
   <>
     <Container>
       <Logo />
-      <Link to="/about">What is humble?</Link>
       <Form>
         <Input type="email" placeholder="email" />
         <Input type="password" placeholder="password" />
         <Button type="submit">Login</Button>
       </Form>
-      <Button type="button">Sign up</Button>
     </Container>
-    <Navbar />
+    <Container>
+      <Button type="button">Sign up</Button>
+      <TextLink to="/about">What is humble?</TextLink>
+    </Container>
   </>
 );
 

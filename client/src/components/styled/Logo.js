@@ -7,8 +7,8 @@ const Logo = styled.h1.attrs(props => ({
 }))`
   font-family: "Comfortaa Medium", "Comfortaa", sans-serif;
   font-size: var(--font-logo);
-  padding: var(--space-sm) var(--component-padding);
-  margin: var(--component-margin);
+  padding: var(--space-xxxs) var(--component-padding);
+  margin: var(--space-xxxs) var(--component-margin);
 `;
 
 export default Logo;

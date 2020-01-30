@@ -3,6 +3,7 @@ import "./About.css";
 
 import Navbar from "../Navbar/Navbar";
 
+import H1 from "../styled/H1";
 import P from "../styled/P";
 import Container from "../styled/Container";
 
@@ -10,6 +11,7 @@ const About = () => {
   return (
     <>
       <Container>
+        <H1>About</H1>
         <P>
           Welcome to humble. Our goal is to promote community solidarity. We
           have built a platform to help facilitate real-life human interactions
