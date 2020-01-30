@@ -7,7 +7,8 @@ const {
   getRequest,
   categoryList,
   searchOfferAll,
-  searchOfferCategory
+  searchOfferCategory,
+  searchRequestAll
 } = require("./queries/getData");
 
 router.get("/get-member", (req, res) => {
@@ -48,6 +49,12 @@ router.get("/search-offer-all", (req, res) => {
 router.get("/search-offer-category", (req, res) => {
   const categoryId = req.query.categoryId;
   searchOfferCategory(categoryId).then(data => {
+    res.json(data);
+  });
+});
+
+router.get("/search-request-all", (req, res) => {
+  searchRequestAll().then(data => {
     res.json(data);
   });
 });
