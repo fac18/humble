@@ -29,14 +29,29 @@
   --space-xxxl: calc(8.5 * var(--space-unit));
   --space-xxxxl: calc(13.75 * var(--space-unit));
 
-  --component-padding: var(--space-md);
-  --border-width: var(--space-xxxxs);
+  /* Most components will have padding but we use margin more sparingly to avoid weird flow */
+  --component-padding: var(--space-sm);
+  --component-margin: var(--space-xxs);
+  --border-width: calc(0.5 * var(--space-xxxxs));
+
+  /* FONT */
+
+  --font-unit: 1em;
+
+  /* bring default 16px font up to 18px, while observing user style sheet and making it possible to enlarge for different media*/
+  --font-p: calc(1.125 * var(--font-unit));
+  --font-h4: calc(1.25 * var(--font-unit));
+  --font-h3: calc(1.375 * var(--font-unit));
+  --font-h2: calc(1.5 * var(--font-unit));
+  --font-h1: calc(2.625 * var(--font-unit));
+  --font-logo: calc(3.5 * var(--font-unit));
 }
 
 body {
   margin: 0;
   background: var(--background);
-  font-family: "Dosis", sans-serif;
+  color: var(--primary);
+  font-family: "Dosis Regular", "Dosis", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

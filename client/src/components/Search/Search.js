@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
+
 import UserCard from "../styled/UserCard";
 import getRequest from "../../utils/getRequest";
 import UserProfile from "../UserProfile/UserProfile";
+import Navbar from "../Navbar/Navbar";
+
+import Button from "../styled/Button";
+import P from "../styled/P";
+import Container from "../styled/Container";
+import H1 from "../styled/H1";
+import H2 from "../styled/H2";
+import H3 from "../styled/H3";
 
 function Search() {
   const [allOffersCards, setAllOffersCards] = useState(null);
@@ -19,7 +28,7 @@ function Search() {
   }, []);
 
   if (!allCategories || !allOffersCards || !allRequestsCards)
-    return <h1>Loading...</h1>;
+    return <H1>Loading...</H1>;
 
   return (
     <React.Fragment>
@@ -27,15 +36,16 @@ function Search() {
         <UserProfile user={viewUser} />
       ) : (
         <>
-          <div>
-            <h2>Search for things that people want</h2>
-            <button onClick={() => setToggleShare(!toggleShare)}>
+          <Container>
+            <H2>Search for things that people want</H2>
+            <Button onClick={() => setToggleShare(!toggleShare)}>
               {toggleShare ? "help with" : "to share"}
-            </button>
-          </div>
+            </Button>
+          </Container>
+
           {toggleShare ? (
             <>
-              <h2>Choose a category:</h2>
+              <H2>Choose a category:</H2>
               <select
                 onChange={e => {
                   setActiveCategory(Number(e.target.value));
@@ -57,12 +67,12 @@ function Search() {
                     return (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
-                        <div>
-                          <p>{member.member_name}</p>
-                          <p>{member.category_name}</p>
-                          <p>{member.request_name}</p>
-                          <p>{member.postcode}</p>
-                        </div>
+                        <Container>
+                          <P>{member.member_name}</P>
+                          <P>{member.category_name}</P>
+                          <P>{member.request_name}</P>
+                          <P>{member.postcode}</P>
+                        </Container>
                       </UserCard>
                     );
                   })
@@ -70,19 +80,19 @@ function Search() {
                     return member.category_id === activeCategory ? (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
-                        <div>
-                          <p>{member.member_name}</p>
-                          <p>{member.category_name}</p>
-                          <p>{member.request_name}</p>
-                          <p>{member.postcode}</p>
-                        </div>
+                        <Container>
+                          <P>{member.member_name}</P>
+                          <P>{member.category_name}</P>
+                          <P>{member.request_name}</P>
+                          <P>{member.postcode}</P>
+                        </Container>
                       </UserCard>
                     ) : null;
                   })}
             </>
           ) : (
             <>
-              <h2>Choose a category:</h2>
+              <H2>Choose a category:</H2>
               <select
                 onChange={e => {
                   setActiveCategory(Number(e.target.value));
@@ -104,12 +114,12 @@ function Search() {
                     return (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
-                        <div>
-                          <p>{member.member_name}</p>
-                          <p>{member.category_name}</p>
-                          <p>{member.offer_name}</p>
-                          <p>{member.postcode}</p>
-                        </div>
+                        <Container>
+                          <P>{member.member_name}</P>
+                          <P>{member.category_name}</P>
+                          <P>{member.offer_name}</P>
+                          <P>{member.postcode}</P>
+                        </Container>
                       </UserCard>
                     );
                   })
@@ -117,12 +127,12 @@ function Search() {
                     return member.category_id === activeCategory ? (
                       <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
-                        <div>
-                          <p>{member.member_name}</p>
-                          <p>{member.category_name}</p>
-                          <p>{member.offer_name}</p>
-                          <p>{member.postcode}</p>
-                        </div>
+                        <Container>
+                          <P>{member.member_name}</P>
+                          <P>{member.category_name}</P>
+                          <P>{member.offer_name}</P>
+                          <P>{member.postcode}</P>
+                        </Container>
                       </UserCard>
                     ) : null;
                   })}
@@ -130,6 +140,7 @@ function Search() {
           )}
         </>
       )}
+      <Navbar />
     </React.Fragment>
   );
 }
