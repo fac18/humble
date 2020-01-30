@@ -27,6 +27,12 @@ const getRequest = id => {
     .then(data => data.rows);
 };
 
+const categoryList = () => {
+  return dbConnection
+    .query("SELECT category_id, category_name FROM categories")
+    .then(data => data.rows);
+};
+
 const searchOfferAll = () => {
   return dbConnection
     .query(
@@ -48,6 +54,7 @@ module.exports = {
   getMember,
   getOffer,
   getRequest,
+  categoryList,
   searchOfferAll,
   searchOfferCategory
 };
