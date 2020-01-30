@@ -32,6 +32,12 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
+router.get("/category-list", (req, res) => {
+  categoryList().then(data => {
+    res.json(data);
+  });
+});
+
 router.get("/search-offer-all", (req, res) => {
   searchOfferAll().then(data => {
     res.json(data);
