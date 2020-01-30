@@ -1,6 +1,8 @@
 import React from "react";
 import "./Profile.css";
 
+import Navbar from "../Navbar/Navbar";
+
 function Profile({
   memberName,
   memberAvatar,
@@ -39,6 +41,7 @@ function Profile({
       ) : (
         <p>You don't have any requests yet!</p>
       )}
+      <Navbar />
     </React.Fragment>
   );
 }
