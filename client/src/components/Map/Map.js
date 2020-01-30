@@ -1,20 +1,27 @@
 import React, { useEffect, useRef } from "react";
 import "./Map.css";
 
-const GOOGLE_MAP_API_KEY = AIzaSyASa9m5akT8pSnC7lhiUUPN8ajPneNEI_U;
-const myLocation = {
-  // Founders and Coders
+const GOOGLE_MAP_API_KEY = "AIzaSyC8mv0ICHNZs-6vnS_i-JGbwzV4v90blLQ";
+
+const mapCenter = {
+  //Finsbury Park
   lat: 51.5712,
   lng: -0.1009
 };
 
+const myLocation = {
+  // Founders and Coders
+  lat: 51.5637,
+  lng: -0.1077
+};
+
 const mapStyles = {
-  width: "100%",
-  geight: "400px"
+  width: "80%",
+  height: "300px"
 };
 
 function GoogleMaps(props) {
-  const geegleMapRef = React.createRef();
+  const googleMapRef = React.createRef();
   const googleMap = useRef(null);
   const marker = useRef(null);
 
@@ -23,9 +30,8 @@ function GoogleMaps(props) {
     new window.google.maps.Map(googleMapRef.current, {
       zoom: 15,
       center: {
-        // Finsbury Park
-        lat: 51.5712,
-        lng: -0.1009
+        lat: mapCenter.lat,
+        lng: mapCenter.lng
       }
     });
 
@@ -33,8 +39,10 @@ function GoogleMaps(props) {
     new window.google.maps.Marker({
       position: {
         lat: myLocation.lat,
-        lng: myLocation.lng
-      }
+        lng: myLocation.lng,
+        title: "My Location"
+      },
+      map: googleMap.current
     });
 
   // useEffect Hook
