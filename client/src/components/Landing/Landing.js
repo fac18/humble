@@ -25,11 +25,13 @@ const mapCenter = {
   lng: -0.1009
 };
 
-const myLocation = {
+const postcode1 = "N4 3JU";
+
+/*const myLocation = {
   // Founders and Coders
   lat: 51.5637,
   lng: -0.1077
-};
+};*/
 
 const mapStyles = {
   width: "80%",
@@ -91,7 +93,7 @@ function GoogleMaps(props) {
 
     googleMapScript.addEventListener("load", () => {
       googleMap.current = createGoogleMap();
-      marker.current = createMarker();
+      marker.current = createMarker(postcode1);
     });
   });
 
