@@ -10,7 +10,7 @@ function Search() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [allRequestsCards, setAllRequestsCards] = useState(null);
   const [toggleShare, setToggleShare] = useState(false);
-  const [viewUser, setViewUser] = useState(false);
+  const [viewUser, setViewUser] = useState(null);
 
   useEffect(() => {
     getRequest("/category-list").then(res => setAllCategories(res));
@@ -24,7 +24,7 @@ function Search() {
   return (
     <React.Fragment>
       {viewUser ? (
-        <UserProfile />
+        <UserProfile user={viewUser} />
       ) : (
         <>
           <div>
@@ -55,7 +55,7 @@ function Search() {
               {!activeCategory
                 ? allRequestsCards.map(member => {
                     return (
-                      <UserCard onClick={() => setViewUser(!viewUser)}>
+                      <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
                         <div>
                           <p>{member.member_name}</p>
@@ -68,7 +68,7 @@ function Search() {
                   })
                 : allRequestsCards.map(member => {
                     return member.category_id === activeCategory ? (
-                      <UserCard>
+                      <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
                         <div>
                           <p>{member.member_name}</p>
@@ -102,7 +102,7 @@ function Search() {
               {!activeCategory
                 ? allOffersCards.map(member => {
                     return (
-                      <UserCard>
+                      <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
                         <div>
                           <p>{member.member_name}</p>
@@ -115,7 +115,7 @@ function Search() {
                   })
                 : allOffersCards.map(member => {
                     return member.category_id === activeCategory ? (
-                      <UserCard>
+                      <UserCard onClick={() => setViewUser(member.member_id)}>
                         <img src={member.avatar_url} />
                         <div>
                           <p>{member.member_name}</p>
