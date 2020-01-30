@@ -76,6 +76,7 @@ function Search() {
         </>
       ) : (
         <>
+          <h2>Choose a category:</h2>
           <select
             onChange={e => {
               setActiveCategory(Number(e.target.value));
