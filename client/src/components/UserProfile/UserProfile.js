@@ -29,7 +29,7 @@ const UserProfile = ({ user, setViewUser }) => {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       <H2>User Profile</H2>
       <Button onClick={() => setViewUser(null)}>Back to Search</Button>
       <H3>Viewing {userName}'s Profile</H3>
@@ -63,7 +63,7 @@ const UserProfile = ({ user, setViewUser }) => {
       )}
 
       <Navbar />
-    </>
+    </React.Fragment>
   );
 };
 

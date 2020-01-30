@@ -6,10 +6,12 @@ import { Router } from "react-router-dom";
 
 test("userProfile page renders something", () => {
   const history = createMemoryHistory();
-  const { getByText } = render(
+  const { getByText, debug } = render(
     <Router history={history}>
       <UserProfile />
     </Router>
   );
-  getByText("Profile");
+  const profile = getByText("User Profile");
+  debug(profile);
+  expect(profile).toBeInTheDocument();
 });
