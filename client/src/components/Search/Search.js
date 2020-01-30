@@ -9,12 +9,11 @@ function Search() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [allRequestsCards, setAllRequestsCards] = useState(null);
   const [toggleShare, setToggleShare] = useState(false);
+  const [viewUser, setViewUser] = useState(false);
 
   useEffect(() => {
     getRequest("/category-list").then(res => setAllCategories(res));
-
     getRequest("/search-offer-all").then(res => setAllOffersCards(res));
-
     getRequest("/search-request-all").then(res => setAllRequestsCards(res));
   }, []);
 
