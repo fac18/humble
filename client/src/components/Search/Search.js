@@ -24,9 +24,9 @@ function Search() {
   return (
     <React.Fragment>
       <div>
-        <h2>People who have something to</h2>
+        <h2>Search for things that people want</h2>
         <button onClick={() => setToggleShare(!toggleShare)}>
-          {toggleShare ? "Request" : "Offer"}
+          {toggleShare ? "help with" : "to share"}
         </button>
       </div>
 
