@@ -1,19 +1,15 @@
-/*import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./Map.css";
 
 const GOOGLE_MAP_API_KEY = "AIzaSyC8mv0ICHNZs-6vnS_i-JGbwzV4v90blLQ";
 
 const mapCenter = {
-  //Finsbury Park
+  //Finsbury Park Area
   lat: 51.5712,
   lng: -0.1009
 };
 
-const myLocation = {
-  // Founders and Coders
-  lat: 51.5637,
-  lng: -0.1077
-};
+const postcode1 = "N4 3JU";
 
 const mapStyles = {
   width: "80%",
@@ -35,15 +31,37 @@ function GoogleMaps(props) {
       }
     });
 
-  const createMarker = () =>
-    new window.google.maps.Marker({
-      position: {
-        lat: myLocation.lat,
-        lng: myLocation.lng,
-        title: "My Location"
-      },
-      map: googleMap.current
+  const postcodeConverter = postcode =>
+    fetch(`https://api.postcodes.io/postcodes/${postcode}`)
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => {
+        let longitude = myJson.result.longitude;
+        let latitude = myJson.result.latitude;
+        let coords = {
+          lat: latitude,
+          lng: longitude
+        };
+        return coords;
+      })
+      .catch(err => {
+        return err;
+      });
+
+  const createMarker = postcode => {
+    const coordsPromise = postcodeConverter(postcode);
+    return coordsPromise.then(coords => {
+      new window.google.maps.Marker({
+        position: {
+          lat: coords.lat,
+          lng: coords.lng,
+          title: "My Location"
+        },
+        map: googleMap.current
+      });
     });
+  };
 
   // useEffect Hook
   useEffect(() => {
@@ -53,11 +71,11 @@ function GoogleMaps(props) {
 
     googleMapScript.addEventListener("load", () => {
       googleMap.current = createGoogleMap();
-      marker.current = createMarker();
+      marker.current = createMarker(postcode1);
     });
   });
 
   return <div id="google-map" ref={googleMapRef} style={mapStyles} />;
 }
 
-export default GoogleMaps;*/
+export default GoogleMaps;

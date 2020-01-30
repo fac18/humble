@@ -1,4 +1,4 @@
-/*import React from "react";
+import React from "react";
 import "./Landing.css";
 
 // import styled-components
@@ -12,26 +12,20 @@ const Landing = () => (
   </Container>
 );
 
-export default Landing;*/
+export default Landing;
 
-import React, { useEffect, useRef } from "react";
+/*import React, { useEffect, useRef } from "react";
 //import "./Map.css";
 
 const GOOGLE_MAP_API_KEY = "AIzaSyC8mv0ICHNZs-6vnS_i-JGbwzV4v90blLQ";
 
 const mapCenter = {
-  //Finsbury Park
+  //Finsbury Park Area
   lat: 51.5712,
   lng: -0.1009
 };
 
 const postcode1 = "N4 3JU";
-
-/*const myLocation = {
-  // Founders and Coders
-  lat: 51.5637,
-  lng: -0.1077
-};*/
 
 const mapStyles = {
   width: "80%",
@@ -100,4 +94,4 @@ function GoogleMaps(props) {
   return <div id="google-map" ref={googleMapRef} style={mapStyles} />;
 }
 
-export default GoogleMaps;
+export default GoogleMaps;*/
