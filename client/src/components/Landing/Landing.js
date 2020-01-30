@@ -71,13 +71,15 @@ function GoogleMaps(props) {
 
   const createMarker = postcode => {
     const coordsPromise = postcodeConverter(postcode);
-    new window.google.maps.Marker({
-      position: {
-        lat: myLocation.lat,
-        lng: myLocation.lng,
-        title: "My Location"
-      },
-      map: googleMap.current
+    return coordsPromise.then(coords => {
+      new window.google.maps.Marker({
+        position: {
+          lat: myLocation.lat,
+          lng: myLocation.lng,
+          title: "My Location"
+        },
+        map: googleMap.current
+      });
     });
   };
 
