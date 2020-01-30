@@ -2,7 +2,3 @@ img {
   height: 15vh;
   width: auto;
 }
-
-div {
-  flex-flow: column;
-}
