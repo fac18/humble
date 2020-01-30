@@ -34,6 +34,7 @@ function Search() {
         <>
           <h2>Choose a category:</h2>
           <select
+            aria-label="Select things that people want help with"
             onChange={e => {
               setActiveCategory(Number(e.target.value));
             }}
@@ -84,6 +85,7 @@ function Search() {
         <>
           <h2>Choose a category:</h2>
           <select
+            aria-label="Select things that people want to share"
             onChange={e => {
               setActiveCategory(Number(e.target.value));
             }}
