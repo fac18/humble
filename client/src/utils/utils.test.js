@@ -1,4 +1,5 @@
 import getRequest from "./getRequest";
+import getCategories from "./getCategories";
 
 describe("getRequest function works as expected", () => {
   test("/get-member endpoint returns a member", () => {
@@ -12,6 +13,19 @@ describe("getRequest function works as expected", () => {
     );
     getRequest("/get-member?member_id=3").then(res => {
       expect(res.member_name).toBe("Dan");
+    });
+  });
+
+  test("getCategories function works as expected", () => {
+    const mockResponse = ["DIY", "art", "swimming"];
+
+    global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockResponse)
+      })
+    );
+    getCategories().then(res => {
+      expect(res).toBe("DIY", "art", "swimming");
     });
   });
   // test("/get-member-skills endpoint returns a number", () => {
