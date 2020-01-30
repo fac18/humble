@@ -35,7 +35,7 @@ test("get member's requests", () => {
 
 test("get list of categories", () => {
   return categoryList().then(requests => {
-    expect(requests[0].category_id).toBe("1");
+    expect(requests[0].category_id).toBe(1);
   });
 });
 
