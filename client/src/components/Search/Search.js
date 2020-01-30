@@ -33,7 +33,11 @@ function Search() {
   return (
     <React.Fragment>
       {viewUser ? (
-        <UserProfile user={viewUser} />
+        <UserProfile
+          user={viewUser}
+          viewUser={viewUser}
+          setViewUser={setViewUser}
+        />
       ) : (
         <>
           <Container>
