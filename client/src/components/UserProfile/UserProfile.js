@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getRequest from "../../utils/getRequest";
 import Navbar from "../Navbar/Navbar";
+import Search from "../Search/Search";
 import Button from "../styled/Button";
 import P from "../styled/P";
 import Container from "../styled/Container";
@@ -8,7 +9,7 @@ import H1 from "../styled/H1";
 import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 
-const UserProfile = ({ user, userView, setUserView }) => {
+const UserProfile = ({ user, viewUser, setViewUser }) => {
   const [userName, setUserName] = useState(null);
   const [userAvatar, setUserAvatar] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
@@ -30,7 +31,7 @@ const UserProfile = ({ user, userView, setUserView }) => {
   return (
     <>
       <H2>User Profile</H2>
-      {/* <Button onClick={() => setUserView(null)}>Back to Search</Button> */}
+      <Button onClick={() => setViewUser(null)}>Back to Search</Button>
       <H3>Viewing {userName}'s Profile</H3>
 
       {userAvatar ? <img src={userAvatar} /> : null}
