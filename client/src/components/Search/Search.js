@@ -1,41 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
 import UserCard from "../styled/UserCard";
-import Container from "../styled/Container";
+import getRequest from "../../utils/getRequest";
 
 function Search() {
   const [membersInfo, setMembersInfo] = useState(null);
   const [categoryDropdown, setCategoryDropdown] = useState(null);
+  const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
-    setCategoryDropdown([
-      { category_id: "1", category_name: "art" },
-      { category_id: "2", category_name: "DIY" }
-    ]);
+    getRequest("/category-list").then(res => setCategoryDropdown(res));
 
-    setMembersInfo([
-      {
-        memberName: "Reggie",
-        memberPostcode: "N154UY",
-        memberAvatar:
-          "https://content.invisioncic.com/Mwarframe/pages_media/1_MrBearGaming.png",
-        memberOffers: "hotpot"
-      },
-      {
-        memberName: "Kin",
-        memberPostcode: "N159BT",
-        memberAvatar:
-          "https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png",
-        memberOffers: "painting"
-      }
-    ]);
+    getRequest("/search-offer-all").then(res => setMembersInfo(res));
   }, []);
 
-  if (!membersInfo) return <h1>Loading...</h1>;
+  if (!categoryDropdown || !membersInfo) return <h1>Loading...</h1>;
 
   return (
     <React.Fragment>
-      <select>
+      <select
+        onChange={e => {
+          setActiveCategory(Number(e.target.value));
+        }}
+      >
         {categoryDropdown.map(category => {
           return (
             <option value={category.category_id} key={category.category_id}>
@@ -44,18 +31,34 @@ function Search() {
           );
         })}
       </select>
-      {membersInfo.map(member => {
-        return (
-          <UserCard>
-            <img src={member.memberAvatar} />
-            <div>
-              <p>{member.memberName}</p>
-              <p>{member.memberPostcode}</p>
-              <p>{member.memberOffers}</p>
-            </div>
-          </UserCard>
-        );
-      })}
+      {!activeCategory
+        ? membersInfo.map(member => {
+            return (
+              <UserCard>
+                <img src={member.avatar_url} />
+                <div>
+                  <p>{member.member_name}</p>
+                  <p>{member.category_name}</p>
+                  <p>{member.offer_name}</p>
+                </div>
+              </UserCard>
+            );
+          })
+        : membersInfo.map(member => {
+            console.log("this is active category", activeCategory);
+            console.log("this is member id", member.category_id);
+            console.log("this is all members", member);
+            return member.category_id === activeCategory ? (
+              <UserCard>
+                <img src={member.avatar_url} />
+                <div>
+                  <p>{member.member_name}</p>
+                  <p>{member.category_name}</p>
+                  <p>{member.offer_name}</p>
+                </div>
+              </UserCard>
+            ) : null;
+          })}
     </React.Fragment>
   );
 }

@@ -36,7 +36,7 @@ const categoryList = () => {
 const searchOfferAll = () => {
   return dbConnection
     .query(
-      "SELECT members.member_id, members.member_name, members.avatar_url, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id"
+      "SELECT members.member_id, members.member_name, members.avatar_url, categories.category_id, categories.category_name, offers.offer_name, offers.offer_description FROM offers JOIN members ON members.member_id=offers.member_id JOIN categories ON categories.category_id=offers.category_id"
     )
     .then(data => data.rows);
 };
