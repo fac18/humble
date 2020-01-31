@@ -17,7 +17,7 @@ const Profile = ({
   memberRequests
 }) => {
   return (
-    <React.Fragment>
+    <>
       <H1>My Profile</H1>
       {memberAvatar ? (
         <img src={memberAvatar} alt={`${memberName}'s avatar`} />
@@ -50,7 +50,7 @@ const Profile = ({
         <P>You don't have any requests yet!</P>
       )}
       <Navbar />
-    </React.Fragment>
+    </>
   );
 };
 

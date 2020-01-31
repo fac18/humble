@@ -41,10 +41,10 @@ const Search = props => {
   // proceed only if all API called returned - otherwise show Loading screen
   if (!(allCategories && allOffersCards && allRequestsCards))
     return (
-      <React.Fragment>
+      <>
         <H1>Search your area</H1>
         <H2>Loading...</H2>
-      </React.Fragment>
+      </>
     );
 
   return (
