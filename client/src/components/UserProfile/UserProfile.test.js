@@ -12,6 +12,17 @@ test("userProfile page renders something", () => {
     </Router>
   );
   const profile = getByText("User Profile");
-  debug(profile);
+  // debug(profile);
   expect(profile).toBeInTheDocument();
+});
+
+test("userProfile page renders 'back to search' button", () => {
+  const history = createMemoryHistory();
+  const { queryByText } = render(
+    <Router history={history}>
+      <UserProfile />
+    </Router>
+  );
+  const button = queryByText("Back to Search");
+  expect(button).toBeInTheDocument();
 });
