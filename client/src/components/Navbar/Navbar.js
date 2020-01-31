@@ -23,6 +23,11 @@ function Navbar() {
           <i className="fas fa-info" />
         </NavIcon>
       </Link>
+      <Link to="/">
+        <NavIcon>
+          <i class="fas fa-external-link-alt" />
+        </NavIcon>
+      </Link>
     </NavContainer>
   );
 }
