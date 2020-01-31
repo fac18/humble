@@ -1,9 +1,7 @@
 import React from "react";
 import "./About.css";
 import { Link } from "react-router-dom";
-
 import Navbar from "../Navbar/Navbar";
-
 import Button from "../styled/Button";
 import H1 from "../styled/H1";
 import P from "../styled/P";
