@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import "./Map.css";
 
-const GOOGLE_MAP_API_KEY = "AIzaSyC8mv0ICHNZs-6vnS_i-JGbwzV4v90blLQ";
+const GOOGLE_MAP_API_KEY = process.env.GOOGLE_MAP_API_KEY; // "AIzaSyC8mv0ICHNZs-6vnS_i-JGbwzV4v90blLQ";
 
+// 0.01 deg is ~ 1.1km (circumference of Earth 40000 / 360 = 111.1km)
 const mapCenter = {
   //Finsbury Park Area
   lat: 51.5712,
   lng: -0.1009
 };
 
-const postcode1 = "N4 3JU";
+const postcode1 = "N4 3JU"; // hardcode postcode to test
 
 const mapStyles = {
   width: "80%",
@@ -17,6 +18,9 @@ const mapStyles = {
 };
 
 function GoogleMaps(props) {
+  // refs are an 'escape hatch' which create hard links to objects for easy access eg. DOM nodes
+  // refs are basically objects like { constant: mutableValueHere } which persist between renders
+  // cf. https://reactjs.org/docs/hooks-reference.html#useref
   const googleMapRef = React.createRef();
   const googleMap = useRef(null);
   const marker = useRef(null);
@@ -54,8 +58,9 @@ function GoogleMaps(props) {
     return coordsPromise.then(coords => {
       new window.google.maps.Marker({
         position: {
-          lat: coords.lat,
-          lng: coords.lng,
+          // randomly give or take up to 500m for personal security
+          lat: coords.lat + (0.5 - Math.random()) / 100,
+          lng: coords.lng + (0.5 - Math.random()) / 100,
           title: "My Location"
         },
         map: googleMap.current
