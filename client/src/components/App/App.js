@@ -12,7 +12,7 @@ import Error from "../Error/Error";
 // import utils for API call
 import getRequest from "../../utils/getRequest";
 
-function App() {
+const App = () => {
   const [memberId, setMemberId] = useState(4); // hard code user
   const [memberName, setMemberName] = useState(null);
   const [memberAvatar, setMemberAvatar] = useState(null);
@@ -56,6 +56,6 @@ function App() {
       </Switch>
     </main>
   );
-}
+};
 
 export default App;
