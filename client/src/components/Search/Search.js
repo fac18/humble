@@ -49,11 +49,14 @@ const Search = props => {
 
   return (
     <>
-      <H1>Search your area</H1>
       {viewUser ? (
-        <UserProfile user={viewUser} setViewUser={setViewUser} />
+        <>
+          <H1>Search your area</H1>
+          <UserProfile user={viewUser} setViewUser={setViewUser} />
+        </>
       ) : (
         <Container>
+          <H1>Search your area</H1>
           <Container border="var(--border-width) solid var(--detail)">
             <Container
               direction="row"
