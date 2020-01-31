@@ -11,6 +11,7 @@ import Map from "../Map/Map";
 import Button from "../styled/Button";
 import Container from "../styled/Container";
 import H1 from "../styled/H1";
+import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 import BubbleButton from "../styled/BubbleButton";
 import NavIcon from "../styled/NavIcon";
@@ -39,10 +40,16 @@ const Search = props => {
 
   // proceed only if all API called returned - otherwise show Loading screen
   if (!(allCategories && allOffersCards && allRequestsCards))
-    return <H1>Loading...</H1>;
+    return (
+      <React.Fragment>
+        <H1>Search your area</H1>
+        <H2>Loading...</H2>
+      </React.Fragment>
+    );
 
   return (
     <>
+      <H1>Search your area</H1>
       {viewUser ? (
         <UserProfile user={viewUser} setViewUser={setViewUser} />
       ) : (

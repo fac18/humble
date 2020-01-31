@@ -14,15 +14,4 @@ describe("getRequest function works as expected", () => {
       expect(res.member_name).toBe("Dan");
     });
   });
-  // test("/get-member-skills endpoint returns a number", () => {
-  //   const mockResponse = {
-  //     interactions: 3
-  //   };
-  //   global.fetch = jest.fn().mockImplementation(() =>
-  //     Promise.resolve({
-  //       text: () => Promise.resolve(mockResponse)
-  //     })
-  //   );
-  //     getInteractions
-  // });
 });

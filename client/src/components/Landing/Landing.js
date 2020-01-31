@@ -18,7 +18,7 @@ const Landing = () => (
       <Form>
         <Input type="email" placeholder="email" />
         <Input type="password" placeholder="password" />
-        <Link to="/search">
+        <Link to="/about">
           <Button type="submit">Login</Button>
         </Link>
       </Form>

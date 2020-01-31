@@ -1,7 +1,12 @@
 import React from "react";
 import "./Profile.css";
-
 import Navbar from "../Navbar/Navbar";
+import Button from "../styled/Button";
+import P from "../styled/P";
+import Container from "../styled/Container";
+import H1 from "../styled/H1";
+import H2 from "../styled/H2";
+import H3 from "../styled/H3";
 
 function Profile({
   memberName,
@@ -13,13 +18,14 @@ function Profile({
 }) {
   return (
     <React.Fragment>
-      {memberName ? <p>{memberName}'s Profile</p> : null}
+      <H1>My Profile</H1>
       {memberAvatar ? (
         <img src={memberAvatar} alt={`${memberName}'s avatar`} />
       ) : null}
-      {memberEmail ? <p>Contact email: {memberEmail}.</p> : null}
-      {memberPostcode ? <p>Location: {memberPostcode}</p> : null}
-      <p>My offers:</p>
+      {memberName ? <P>Name: {memberName}.</P> : null}
+      {memberEmail ? <P>Contact email: {memberEmail}.</P> : null}
+      {memberPostcode ? <P>Location: {memberPostcode}</P> : null}
+      <H3>My offers:</H3>
       {memberOffers ? (
         <ul>
           {memberOffers.map(offer => (
@@ -29,9 +35,9 @@ function Profile({
           ))}
         </ul>
       ) : (
-        <p>You don't have any offers yet!</p>
+        <P>You don't have any offers yet!</P>
       )}
-      <p>My requests:</p>
+      <H3>My requests:</H3>
       {memberRequests ? (
         <ul>
           {memberRequests.map(request => (
@@ -41,7 +47,7 @@ function Profile({
           ))}
         </ul>
       ) : (
-        <p>You don't have any requests yet!</p>
+        <P>You don't have any requests yet!</P>
       )}
       <Navbar />
     </React.Fragment>
