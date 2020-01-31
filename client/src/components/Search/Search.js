@@ -6,16 +6,21 @@ import getRequest from "../../utils/getRequest";
 import UserProfile from "../UserProfile/UserProfile";
 import Navbar from "../Navbar/Navbar";
 import List from "../List/List";
+import Map from "../Map/Map";
 
 import Button from "../styled/Button";
-import P from "../styled/P";
 import Container from "../styled/Container";
 import H1 from "../styled/H1";
-import H2 from "../styled/H2";
 import H3 from "../styled/H3";
-import H4 from "../styled/H4";
 import BubbleButton from "../styled/BubbleButton";
 import NavIcon from "../styled/NavIcon";
+
+// hardcode map centre as Finsbury Park
+const finsburyPark = {
+  //Finsbury Park Area
+  lat: 51.5712,
+  lng: -0.1009
+};
 
 const Search = props => {
   const [allCategories, setAllCategories] = useState(null);
@@ -32,6 +37,7 @@ const Search = props => {
     getRequest("/search-request-all").then(res => setAllRequestsCards(res));
   }, []);
 
+  // proceed only if all API called returned - otherwise show Loading screen
   if (!(allCategories && allOffersCards && allRequestsCards))
     return <H1>Loading...</H1>;
 
@@ -87,7 +93,21 @@ const Search = props => {
               </select>
             </Container>
           </Container>
-          {!toggleShare ? (
+          {toggleMap ? (
+            !toggleShare ? (
+              <Map
+                mapCentre={finsburyPark}
+                activeCategory={activeCategory}
+                cards={allRequestsCards}
+              />
+            ) : (
+              <Map
+                mapCentre={finsburyPark}
+                activeCategory={activeCategory}
+                cards={allOffersCards}
+              />
+            )
+          ) : !toggleShare ? (
             <List
               toggleShare={toggleShare}
               activeCategory={activeCategory}
@@ -104,7 +124,12 @@ const Search = props => {
           )}
         </Container>
       )}
-      <BubbleButton className="search-switch">
+      <BubbleButton
+        className="search-switch"
+        onClick={e => {
+          setToggleMap(toggleMap => !toggleMap);
+        }}
+      >
         <NavIcon>
           {toggleMap ? (
             <i className="fas fa-list-ul" />

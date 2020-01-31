@@ -6,6 +6,8 @@
   "scripts": {
     "start": "NODE_ENV=production node server/index.js",
     "heroku-postbuild": "NODE_ENV=production cd client && npm i && npm run build && cd .. && npm i",
+    "db-init": "NODE_ENV=productio cd server && node model/dbInit.js",
+    "dev:db-init": "NODE_ENV=test cd server && node model/dbInit.js",
     "dev:start": "NODE_ENV=test cd server && nodemon index.js",
     "dev:build": "NODE_ENV=test cd client && npm run build && cd ../server && nodemon index.js",
     "test": "NODE_ENV=test cd client && npm test && cd ../server && npm test",
