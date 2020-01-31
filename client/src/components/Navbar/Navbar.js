@@ -25,7 +25,7 @@ function Navbar() {
       </Link>
       <Link to="/">
         <NavIcon>
-          <i class="fas fa-external-link-alt" />
+          <i className="fas fa-external-link-alt" />
         </NavIcon>
       </Link>
     </NavContainer>
