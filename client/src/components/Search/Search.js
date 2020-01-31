@@ -28,10 +28,16 @@ function Search() {
   }, []);
 
   if (!allCategories || !allOffersCards || !allRequestsCards)
-    return <H1>Loading...</H1>;
+    return (
+      <React.Fragment>
+        <H1>Search your area</H1>
+        <H2>Loading...</H2>
+      </React.Fragment>
+    );
 
   return (
     <React.Fragment>
+      <H1>Search your area</H1>
       {viewUser ? (
         <UserProfile user={viewUser} setViewUser={setViewUser} />
       ) : (

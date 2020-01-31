@@ -1,8 +1,10 @@
 import React from "react";
 import "./About.css";
+import { Link } from "react-router-dom";
 
 import Navbar from "../Navbar/Navbar";
 
+import Button from "../styled/Button";
 import H1 from "../styled/H1";
 import P from "../styled/P";
 import Container from "../styled/Container";
@@ -27,6 +29,9 @@ const About = () => {
           If you would like to join our platform, please read and confirm your
           agreement with our statement of intent.
         </P>
+        <Link to="/search">
+          <Button>go to search</Button>
+        </Link>
       </Container>
       <Navbar />
     </>
