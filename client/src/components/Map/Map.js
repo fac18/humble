@@ -1,5 +1,4 @@
 import React, { createRef, useEffect, useRef } from "react";
-import "./Map.css";
 
 // import utils / helper functions
 import createGoogleMap from "../../utils/createGoogleMap";

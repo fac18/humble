@@ -1,5 +1,4 @@
 import React from "react";
-import "./Profile.css";
 import Navbar from "../Navbar/Navbar";
 import Button from "../styled/Button";
 import P from "../styled/P";

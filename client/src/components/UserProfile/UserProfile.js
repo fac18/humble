@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getRequest from "../../utils/getRequest";
 import Navbar from "../Navbar/Navbar";
-import Search from "../Search/Search";
 import Button from "../styled/Button";
-import P from "../styled/P";
-import Container from "../styled/Container";
-import H1 from "../styled/H1";
 import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 
