@@ -7,16 +7,16 @@ import H1 from "../styled/H1";
 import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 
-function Profile({
+const Profile = ({
   memberName,
   memberAvatar,
   memberEmail,
   memberPostcode,
   memberOffers,
   memberRequests
-}) {
+}) => {
   return (
-    <React.Fragment>
+    <>
       <H1>My Profile</H1>
       {memberAvatar ? (
         <img src={memberAvatar} alt={`${memberName}'s avatar`} />
@@ -49,8 +49,8 @@ function Profile({
         <P>You don't have any requests yet!</P>
       )}
       <Navbar />
-    </React.Fragment>
+    </>
   );
-}
+};
 
 export default Profile;
