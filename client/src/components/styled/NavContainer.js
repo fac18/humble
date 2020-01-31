@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Container from "./Container";
 
 const NavContainer = styled(Container)`
-  background-color: var(--secondary);
+  background-color: var(--primary);
   min-width: 100vw;
   display: absolute;
   position: fixed;

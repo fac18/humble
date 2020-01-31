@@ -12,6 +12,5 @@ test("userProfile page renders something", () => {
     </Router>
   );
   const profile = getByText("User Profile");
-  debug(profile);
   expect(profile).toBeInTheDocument();
 });
