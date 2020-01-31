@@ -6,56 +6,54 @@ import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 
 const UserProfile = ({ user, setViewUser }) => {
-  const [userName, setUserName] = useState(null);
-  const [userAvatar, setUserAvatar] = useState(null);
-  const [userEmail, setUserEmail] = useState(null);
-  const [userPostcode, setUserPostcode] = useState(null);
-  const [userOffers, setUserOffers] = useState([]);
-  const [userRequests, setUserRequests] = useState(null);
+  const [userSearch, setUserSearch] = useState(null);
 
   useEffect(() => {
     getRequest(`/get-profile?member_id=${user}`).then(res => {
-      setUserName(res[0].member_name);
-      setUserAvatar(res[0].avatar_url);
-      setUserEmail(res[0].email);
-      setUserPostcode(res[0].postcode);
-      setUserOffers(res[1]);
-      setUserRequests(res[2]);
+      setUserSearch({
+        name: res[0].member_name,
+        avatar: res[0].avatar_url,
+        email: res[0].email,
+        postcode: res[0].postcode,
+        offers: res[1],
+        requests: res[2]
+      });
     });
   }, []);
 
+  if (!userSearch) return <H2>Loading...</H2>;
   return (
     <>
       <H2>User Profile</H2>
       <Button onClick={() => setViewUser(null)}>Back to Search</Button>
-      <H3>Viewing {userName}'s Profile</H3>
+      {userSearch.name ? <H3>Viewing {userSearch.name}'s Profile</H3> : null}
 
-      {userAvatar ? <img src={userAvatar} /> : null}
-      {userEmail ? <p>Contact email: {userEmail}.</p> : null}
-      {userPostcode ? <p>Location: {userPostcode}</p> : null}
+      {userSearch.avatar ? <img src={userSearch.avatar} /> : null}
+      {userSearch.email ? <p>Contact email: {userSearch.email}.</p> : null}
+      {userSearch.postcode ? <p>Location: {userSearch.postcode}</p> : null}
       <p>Offers:</p>
-      {userOffers ? (
+      {userSearch.offers ? (
         <ul>
-          {userOffers.map(offer => (
+          {userSearch.offers.map(offer => (
             <li key={offer.offer_name}>
               {offer.offer_name}: {offer.offer_description}
             </li>
           ))}
         </ul>
       ) : (
-        <p>{userName} does not currently have any offers</p>
+        <p>{userSearch.name} does not currently have any offers</p>
       )}
       <p>Requests:</p>
-      {userRequests ? (
+      {userSearch.requests ? (
         <ul>
-          {userRequests.map(request => (
+          {userSearch.requests.map(request => (
             <li key={request.request_name}>
               {request.request_name}: {request.request_description}
             </li>
           ))}
         </ul>
       ) : (
-        <p>{userName} does not currently have any requests</p>
+        <p>{userSearch.name} does not currently have any requests</p>
       )}
 
       <Navbar />

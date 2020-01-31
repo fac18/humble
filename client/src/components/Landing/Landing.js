@@ -1,10 +1,8 @@
 import React from "react";
-import "./Landing.css";
 import { Link } from "react-router-dom";
 
 // import styled-components
 import Button from "../styled/Button";
-import P from "../styled/P";
 import Logo from "../styled/Logo";
 import Container from "../styled/Container";
 import Input from "../styled/Input";
