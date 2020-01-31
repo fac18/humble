@@ -11,16 +11,16 @@ test("search component renders category dropdown text as expected", () => {
       <Search />
     </Router>
   );
-  getByText("Search your area");
+  getByText("Choose a category");
 });
 
-// test("userProfile page renders 'back to search' button", () => {
-//   const history = createMemoryHistory();
-//   const { queryByText } = render(
-//     <Router history={history}>
-//       <UserProfile />
-//     </Router>
-//   );
-//   const button = queryByText("Back to Search");
-//   expect(button).toBeInTheDocument();
-// });
+test("search page renders 'to share' or 'help with' button", () => {
+  const history = createMemoryHistory();
+  const { queryByText } = render(
+    <Router history={history}>
+      <Search />
+    </Router>
+  );
+  const button = queryByText("help with");
+  expect(button).toBeInTheDocument();
+});
