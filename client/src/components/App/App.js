@@ -13,21 +13,18 @@ import getRequest from "../../utils/getRequest";
 
 const App = () => {
   const [memberId, setMemberId] = useState(4); // hard code user
-  const [memberName, setMemberName] = useState(null);
-  const [memberAvatar, setMemberAvatar] = useState(null);
-  const [memberEmail, setMemberEmail] = useState(null);
-  const [memberPostcode, setMemberPostcode] = useState(null);
-  const [memberOffers, setMemberOffers] = useState([]);
-  const [memberRequests, setMemberRequests] = useState(null);
+  const [member, setMember] = useState(null);
 
   useEffect(() => {
     getRequest(`/get-profile?member_id=${memberId}`).then(res => {
-      setMemberName(res[0].member_name);
-      setMemberAvatar(res[0].avatar_url);
-      setMemberEmail(res[0].email);
-      setMemberPostcode(res[0].postcode);
-      setMemberOffers(res[1]);
-      setMemberRequests(res[2]);
+      setMember({
+        name: res[0].member_name,
+        avatar: res[0].avatar_url,
+        email: res[0].email,
+        postcode: res[0].postcode,
+        offers: res[1],
+        requests: res[2]
+      });
     });
   }, [memberId]);
 
@@ -39,17 +36,7 @@ const App = () => {
         <Route path="/search" render={props => <Search {...props} />} />
         <Route
           path="/profile"
-          render={props => (
-            <Profile
-              {...props}
-              memberName={memberName}
-              memberAvatar={memberAvatar}
-              memberEmail={memberEmail}
-              memberPostcode={memberPostcode}
-              memberOffers={memberOffers}
-              memberRequests={memberRequests}
-            />
-          )}
+          render={props => <Profile {...props} member={member} />}
         />
       </Switch>
     </main>

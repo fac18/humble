@@ -7,27 +7,20 @@ import H1 from "../styled/H1";
 import H2 from "../styled/H2";
 import H3 from "../styled/H3";
 
-const Profile = ({
-  memberName,
-  memberAvatar,
-  memberEmail,
-  memberPostcode,
-  memberOffers,
-  memberRequests
-}) => {
+const Profile = ({ member }) => {
   return (
     <>
       <H1>My Profile</H1>
-      {memberAvatar ? (
-        <img src={memberAvatar} alt={`${memberName}'s avatar`} />
+      {member.avatar ? (
+        <img src={member.avatar} alt={`${member.name}'s avatar`} />
       ) : null}
-      {memberName ? <P>Name: {memberName}.</P> : null}
-      {memberEmail ? <P>Contact email: {memberEmail}.</P> : null}
-      {memberPostcode ? <P>Location: {memberPostcode}</P> : null}
+      {member.name ? <P>name: {member.name}.</P> : null}
+      {member.email ? <P>Contact email: {member.email}.</P> : null}
+      {member.postcode ? <P>Location: {member.postcode}</P> : null}
       <H3>My offers:</H3>
-      {memberOffers ? (
+      {member.offers ? (
         <ul>
-          {memberOffers.map(offer => (
+          {member.offers.map(offer => (
             <li key={offer.offer_name}>
               {offer.offer_name}: {offer.offer_description}
             </li>
@@ -37,9 +30,9 @@ const Profile = ({
         <P>You don't have any offers yet!</P>
       )}
       <H3>My requests:</H3>
-      {memberRequests ? (
+      {member.requests ? (
         <ul>
-          {memberRequests.map(request => (
+          {member.requests.map(request => (
             <li key={request.request_name}>
               {request.request_name}: {request.request_description}
             </li>
