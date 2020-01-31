@@ -1,24 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
 
-import UserCard from "../styled/UserCard";
 import getRequest from "../../utils/getRequest";
+
 import UserProfile from "../UserProfile/UserProfile";
 import Navbar from "../Navbar/Navbar";
+import List from "../List/List";
+import Map from "../Map/Map";
 
 import Button from "../styled/Button";
-import P from "../styled/P";
 import Container from "../styled/Container";
 import H1 from "../styled/H1";
 import H2 from "../styled/H2";
 import H3 from "../styled/H3";
+import BubbleButton from "../styled/BubbleButton";
+import NavIcon from "../styled/NavIcon";
 
-function Search() {
-  const [allOffersCards, setAllOffersCards] = useState(null);
+// hardcode map centre as Finsbury Park
+const finsburyPark = {
+  //Finsbury Park Area
+  lat: 51.5712,
+  lng: -0.1009
+};
+
+const Search = props => {
   const [allCategories, setAllCategories] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [allOffersCards, setAllOffersCards] = useState(null);
   const [allRequestsCards, setAllRequestsCards] = useState(null);
   const [toggleShare, setToggleShare] = useState(false);
+  const [toggleMap, setToggleMap] = useState(false);
   const [viewUser, setViewUser] = useState(null);
 
   useEffect(() => {
@@ -27,7 +38,8 @@ function Search() {
     getRequest("/search-request-all").then(res => setAllRequestsCards(res));
   }, []);
 
-  if (!allCategories || !allOffersCards || !allRequestsCards)
+  // proceed only if all API called returned - otherwise show Loading screen
+  if (!(allCategories && allOffersCards && allRequestsCards))
     return (
       <React.Fragment>
         <H1>Search your area</H1>
@@ -36,22 +48,37 @@ function Search() {
     );
 
   return (
-    <React.Fragment>
-      <H1>Search your area</H1>
+    <>
       {viewUser ? (
-        <UserProfile user={viewUser} setViewUser={setViewUser} />
-      ) : (
         <>
-          <Container>
-            <H2>Search for things that people want</H2>
-            <Button onClick={() => setToggleShare(!toggleShare)}>
-              {toggleShare ? "help with" : "to share"}
-            </Button>
-          </Container>
-
-          {toggleShare ? (
-            <>
-              <H2>Choose a category:</H2>
+          <H1>Search your area</H1>
+          <UserProfile user={viewUser} setViewUser={setViewUser} />
+        </>
+      ) : (
+        <Container>
+          <H1>Search your area</H1>
+          <Container border="var(--border-width) solid var(--detail)">
+            <Container
+              direction="row"
+              justify="space-around"
+              padding="var(--space-xs)"
+            >
+              <H3>Search for things that you want...</H3>
+              <Button
+                onClick={() => {
+                  setToggleShare(!toggleShare);
+                  setActiveCategory(null); // reset category selection
+                }}
+              >
+                {toggleShare ? "to learn" : "to share"}
+              </Button>
+            </Container>
+            <Container
+              direction="row"
+              justify="space-around"
+              padding="var(--space-xs)"
+            >
+              <H3>Choose a category:</H3>
               <select
                 aria-label="Select things that people want help with"
                 onChange={e => {
@@ -74,105 +101,56 @@ function Search() {
                   );
                 })}
               </select>
-              {!activeCategory
-                ? allRequestsCards.map(member => {
-                    return (
-                      <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img
-                          src={member.avatar_url}
-                          alt={`${member.member_name}'s avatar`}
-                        />
-                        <Container>
-                          <P>{member.member_name}</P>
-                          <P>{member.category_name}</P>
-                          <P>{member.request_name}</P>
-                          <P>{member.postcode}</P>
-                        </Container>
-                      </UserCard>
-                    );
-                  })
-                : allRequestsCards.map(member => {
-                    return member.category_id === activeCategory ? (
-                      <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img
-                          src={member.avatar_url}
-                          alt={`${member.member_name}'s avatar`}
-                        />
-                        <Container>
-                          <P>{member.member_name}</P>
-                          <P>{member.category_name}</P>
-                          <P>{member.request_name}</P>
-                          <P>{member.postcode}</P>
-                        </Container>
-                      </UserCard>
-                    ) : null;
-                  })}
-            </>
+            </Container>
+          </Container>
+          {toggleMap ? (
+            !toggleShare ? (
+              <Map
+                mapCentre={finsburyPark}
+                activeCategory={activeCategory}
+                cards={allRequestsCards}
+              />
+            ) : (
+              <Map
+                mapCentre={finsburyPark}
+                activeCategory={activeCategory}
+                cards={allOffersCards}
+              />
+            )
+          ) : !toggleShare ? (
+            <List
+              toggleShare={toggleShare}
+              activeCategory={activeCategory}
+              setViewUser={setViewUser}
+              cards={allRequestsCards}
+            />
           ) : (
-            <>
-              <H2>Choose a category:</H2>
-              <select
-                aria-label="Select things that people want to share"
-                onChange={e => {
-                  setActiveCategory(Number(e.target.value));
-                }}
-              >
-                {allCategories.map(category => {
-                  return (
-                    <option
-                      value={category.category_id}
-                      key={category.category_id}
-                      selected={
-                        activeCategory === category.category_id
-                          ? "selected"
-                          : ""
-                      }
-                    >
-                      {category.category_name}
-                    </option>
-                  );
-                })}
-              </select>
-              {!activeCategory
-                ? allOffersCards.map(member => {
-                    return (
-                      <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img
-                          src={member.avatar_url}
-                          alt={`${member.member_name}'s avatar`}
-                        />
-                        <Container>
-                          <P>{member.member_name}</P>
-                          <P>{member.category_name}</P>
-                          <P>{member.offer_name}</P>
-                          <P>{member.postcode}</P>
-                        </Container>
-                      </UserCard>
-                    );
-                  })
-                : allOffersCards.map(member => {
-                    return member.category_id === activeCategory ? (
-                      <UserCard onClick={() => setViewUser(member.member_id)}>
-                        <img
-                          src={member.avatar_url}
-                          alt={`${member.member_name}'s avatar`}
-                        />
-                        <Container>
-                          <P>{member.member_name}</P>
-                          <P>{member.category_name}</P>
-                          <P>{member.offer_name}</P>
-                          <P>{member.postcode}</P>
-                        </Container>
-                      </UserCard>
-                    ) : null;
-                  })}
-            </>
+            <List
+              toggleShare={toggleShare}
+              activeCategory={activeCategory}
+              setViewUser={setViewUser}
+              cards={allOffersCards}
+            />
           )}
-        </>
+        </Container>
       )}
+      <BubbleButton
+        className="search-switch"
+        onClick={e => {
+          setToggleMap(toggleMap => !toggleMap);
+        }}
+      >
+        <NavIcon>
+          {toggleMap ? (
+            <i className="fas fa-list-ul" />
+          ) : (
+            <i className="fas fa-map-marker-alt" />
+          )}
+        </NavIcon>
+      </BubbleButton>
       <Navbar />
-    </React.Fragment>
+    </>
   );
-}
+};
 
 export default Search;

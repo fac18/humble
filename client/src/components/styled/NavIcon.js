@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavIcon = styled.div`
-  color: var(--primary);
+  color: var(--secondary);
   font-size: var(--font-h2);
 `;
 

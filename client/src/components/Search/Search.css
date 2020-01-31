@@ -1,4 +1,6 @@
-img {
-  height: 15vh;
-  width: auto;
+.search-switch {
+  display: absolute;
+  position: fixed;
+  bottom: var(--space-xxl);
+  right: var(--space-lg);
 }
