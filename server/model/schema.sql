@@ -134,10 +134,10 @@ INSERT INTO groups (category_id, group_name, group_description, member_id) VALUE
 
 
 INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
-( 1, NULL, 4, 3 ),
-( 2, NULL, 3, 4 ),
-( NULL, 3 , 1, 2 ),
-( NULL, 4 , 2, 1 );
+( 1, NULL, 1, 4 ),
+( 2, NULL, 2, 1 ),
+( NULL, 3 , 3, 4 ),
+( NULL, 4 , 4, 2 );
 
 INSERT INTO comments (author_id, subject_id, comment) VALUES
 (3, 4, 'Taught me so much about single-strokes to make a happy painting'),
