@@ -140,9 +140,9 @@ INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
 ( NULL, 4 , 4, 2 );
 
 INSERT INTO comments (author_id, subject_id, comment) VALUES
-(3, 4, 'Taught me so much about single-strokes to make a happy painting'),
-(4, 3, 'Managed to build a high-quality cabinet out of wood ordered online with help'),
-(2, 1, 'Learned so much about backstrokes in swimming it was great'),
-(1, 2, 'Will appreciate learning how to make salmon-skin sushi from a potential friend');
+(1, 2, 'Judith was really patient and understanding in helping me navigate the unemployment benefits system'),
+(2, 4, 'Kin helped me fill out a form in spanish in just a fraction of time it would have taken me otherwise!'),
+(4, 1, 'It was great to talk about my experience of caring for a disabled child with someone else facing similar challenges'),
+(4, 3, 'Dan had some great tips for addapting my bathroom for my disabled son');
 
 COMMIT;
