@@ -115,16 +115,16 @@ INSERT INTO categories (category_name) VALUES
 ('Wellness');
 
 INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUES
-(2, 'Caring Experience' , 'I have experience caring for a child with Cerebral Palsy', 1),
-(18, 'Bureaucracy' , 'I have experienced insecure and temporary employment', 2),
-(6, 'DIY' , 'I have some basic DIY skills to offer', 3),
+(2, 'Caring Experience', 'I have experience caring for a child with Cerebral Palsy', 1),
+(18, 'Bureaucracy', 'I have experienced insecure and temporary employment', 2),
+(6, 'DIY', 'I have some basic DIY skills to offer', 3),
 (12, 'Spanish Translation' , 'I am fluent in Spanish and have experience of translation', 4);
 
 INSERT INTO requests (category_id, request_name, request_description, member_id) VALUES
-(1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 4),
-(2, 'remodelling' , 'My second baby has a crib that needs remodelling but I would love if someone could teach me how to do it', 3),
-(3, 'swimming' , 'Would love it if anyone could help me with backstroke', 2),
-(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 1);
+(2, 'Carers', 'I have a disabled son and would like to connect with someone in a similar situation', 4),
+(18, 'Redundancy', 'I have just been made redundant and would like help navigating the benefits system', 1),
+(6, 'DIY', 'I would really appreciate some help adapting our bathroom for our disabled son', 4),
+(12, 'Spanish Language Skills', 'I need some help filling out a form in spanish', 2);
 
 INSERT INTO groups (category_id, group_name, group_description, member_id) VALUES
 (17, 'Football', 'I would like to form a 5-a-side team to join a league', 1),
