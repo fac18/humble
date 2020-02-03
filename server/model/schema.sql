@@ -51,7 +51,8 @@ CREATE TABLE "groups" (
   "group_id" SERIAL PRIMARY KEY,
   "category_id" INT NOT NULL,
   "group_name" VARCHAR(255) NOT NULL,
-  "group_description" VARCHAR NOT NULL
+  "group_description" VARCHAR NOT NULL,
+  "member_id" INT NOT NULL
 );
 
 CREATE TABLE "group_members" (
@@ -94,9 +95,9 @@ INSERT INTO members (email, hashed_password, member_name, postcode, avatar_url) 
 
 INSERT INTO categories (category_name) VALUES
 ('Arts & Crafts'),
-('DIY'),
 ('Caring'),
 ('Cooking'),
+('Design'),
 ('Disability'),
 ('DIY'),
 ('Environment & Sustainability'),
@@ -132,6 +133,18 @@ INSERT INTO requests (category_id, request_name, request_description, member_id)
 (2, 'remodelling' , 'My second baby has a crib that needs remodelling but I would love if someone could teach me how to do it', 3),
 (3, 'swimming' , 'Would love it if anyone could help me with backstroke', 2),
 (4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 1);
+
+CREATE TABLE "groups" (
+  "group_id" SERIAL PRIMARY KEY,
+  "category_id" INT NOT NULL,
+  "group_name" VARCHAR(255) NOT NULL,
+  "group_description" VARCHAR NOT NULL,
+  "member_id" INT NOT NULL
+);
+
+INSERT INTO groups (category_id, group_name, group_description) VALUES
+()
+
 
 INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
 ( 1, NULL, 4, 3 ),
