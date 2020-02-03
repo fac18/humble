@@ -1,11 +1,9 @@
 import React from "react";
-import "./Navbar.css";
 import { Link } from "react-router-dom";
-
 import NavContainer from "../styled/NavContainer";
 import NavIcon from "../styled/NavIcon";
 
-function Navbar() {
+const Navbar = () => {
   return (
     <NavContainer direction="row" justify="space-around">
       <Link to="/profile">
@@ -30,6 +28,6 @@ function Navbar() {
       </Link>
     </NavContainer>
   );
-}
+};
 
 export default Navbar;

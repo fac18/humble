@@ -4,12 +4,10 @@ const postcodeConverter = postcode =>
     .then(response => {
       return response.json();
     })
-    .then(myJson => {
-      let longitude = myJson.result.longitude;
-      let latitude = myJson.result.latitude;
-      let coords = {
-        lat: latitude,
-        lng: longitude
+    .then(json => {
+      const coords = {
+        lat: json.result.latitude,
+        lng: json.result.longitude
       };
       return coords;
     })

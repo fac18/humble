@@ -7,12 +7,11 @@ import Landing from "../Landing/Landing";
 import About from "../About/About";
 import Search from "../Search/Search";
 import Profile from "../Profile/Profile";
-import Error from "../Error/Error";
 
 // import utils for API call
 import getRequest from "../../utils/getRequest";
 
-function App() {
+const App = () => {
   const [memberId, setMemberId] = useState(4); // hard code user
   const [memberName, setMemberName] = useState(null);
   const [memberAvatar, setMemberAvatar] = useState(null);
@@ -52,10 +51,9 @@ function App() {
             />
           )}
         />
-        <Route render={props => <Error />} />
       </Switch>
     </main>
   );
-}
+};
 
 export default App;
