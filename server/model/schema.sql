@@ -100,6 +100,7 @@ INSERT INTO categories (category_name) VALUES
 ('Design'),
 ('Disability'),
 ('DIY'),
+('Education'),
 ('Environment & Sustainability'),
 ('Hair & Beauty'),
 ('Health Issues'),
@@ -134,16 +135,11 @@ INSERT INTO requests (category_id, request_name, request_description, member_id)
 (3, 'swimming' , 'Would love it if anyone could help me with backstroke', 2),
 (4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 1);
 
-CREATE TABLE "groups" (
-  "group_id" SERIAL PRIMARY KEY,
-  "category_id" INT NOT NULL,
-  "group_name" VARCHAR(255) NOT NULL,
-  "group_description" VARCHAR NOT NULL,
-  "member_id" INT NOT NULL
-);
-
-INSERT INTO groups (category_id, group_name, group_description) VALUES
-()
+INSERT INTO groups (category_id, group_name, group_description, member_id) VALUES
+(17, 'Football', 'I would like to form a 5-a-side team to join a league', 1),
+(8, 'Vegetable Garden', 'I would like to establish a community garden to grow vegeatbles', 2),
+(7, 'Book Club', 'I would like to start a book club', 3),
+(3, 'Hot Pot', 'I would like to start a hot-pot and sushi club', 4);
 
 
 INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
