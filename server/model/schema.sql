@@ -93,10 +93,24 @@ INSERT INTO members (email, hashed_password, member_name, postcode, avatar_url) 
 ('kin@fac.com', 'password4', 'Kin', 'N4 4QR', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png');
 
 INSERT INTO categories (category_name) VALUES
-('art'),
+('Arts & Crafts'),
 ('DIY'),
-('sports'),
-('cooking');
+('Caring'),
+('Cooking'),
+('Disability'),
+('DIY'),
+('Environment & Sustainability'),
+('Hair & Beauty'),
+('Health Issues'),
+('Homelessness'),
+('Languages'),
+('Loneliness & Isolation'),
+('Migration'),
+('Parenting'),
+('Relationship Issues'),
+('Sport'),
+('Unemployment'),
+('Wellness');
 
 INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUES
 (1, 'painting' , 'I would like to share my single-stroke prowess with a canvass', 4),
@@ -104,6 +118,14 @@ INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUE
 (3, 'football' , 'Teaching a bicycle kick to a neighbour would be great', 2),
 (4, 'hotpot' , 'Showing a community member how to setup a hotpot brings a great feeling to me', 1),
 (3, 'swimming', 'Able to teach various styles and techniques', 4);
+
+CREATE TABLE "requests" (
+  "request_id" SERIAL PRIMARY KEY,
+  "category_id" INT NOT NULL,
+  "request_name" VARCHAR(255) NOT NULL,
+  "request_description" VARCHAR NOT NULL,
+  "member_id" INT NOT NULL
+);
 
 INSERT INTO requests (category_id, request_name, request_description, member_id) VALUES
 (1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 4),
