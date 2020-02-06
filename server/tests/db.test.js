@@ -47,8 +47,8 @@ test("search for all offers", () => {
 });
 
 test("search for offers by category", () => {
-  return searchOfferCategory(3).then(requests => {
-    expect(requests[0].offer_name).toBe("football");
+  return searchOfferCategory(6).then(requests => {
+    expect(requests[0].offer_name).toBe("DIY");
   });
 });
 
