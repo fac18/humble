@@ -42,7 +42,7 @@ test("get list of categories", () => {
 
 test("search for all offers", () => {
   return searchOfferAll().then(requests => {
-    expect(requests[0].offer_name).toBe("painting");
+    expect(requests[0].offer_name).toBe("Caring Experience");
   });
 });
 
