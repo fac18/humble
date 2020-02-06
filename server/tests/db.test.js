@@ -24,7 +24,7 @@ test("get a specific member from members table", () => {
 
 test("get member's offers", () => {
   return getOffer(2).then(offers => {
-    expect(offers[0].offer_name).toBe("football");
+    expect(offers[0].offer_name).toBe("Bureaucracy");
   });
 });
 
