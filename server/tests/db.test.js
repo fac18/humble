@@ -54,6 +54,6 @@ test("search for offers by category", () => {
 
 test("search for all requests", () => {
   return searchRequestAll().then(requests => {
-    expect(requests[0].request_name).toBe("drawing");
+    expect(requests[0].request_name).toBe("Carers");
   });
 });
