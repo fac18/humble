@@ -30,7 +30,7 @@ test("get member's offers", () => {
 
 test("get member's requests", () => {
   return getRequest(4).then(requests => {
-    expect(requests[0].request_name).toBe("drawing");
+    expect(requests[0].request_name).toBe("Carers");
   });
 });
 
