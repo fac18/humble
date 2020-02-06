@@ -51,7 +51,8 @@ CREATE TABLE "groups" (
   "group_id" SERIAL PRIMARY KEY,
   "category_id" INT NOT NULL,
   "group_name" VARCHAR(255) NOT NULL,
-  "group_description" VARCHAR NOT NULL
+  "group_description" VARCHAR NOT NULL,
+  "member_id" INT NOT NULL
 );
 
 CREATE TABLE "group_members" (
@@ -93,34 +94,55 @@ INSERT INTO members (email, hashed_password, member_name, postcode, avatar_url) 
 ('kin@fac.com', 'password4', 'Kin', 'N4 4QR', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png');
 
 INSERT INTO categories (category_name) VALUES
-('art'),
+('Arts & Crafts'),
+('Caring'),
+('Cooking'),
+('Design'),
+('Disability'),
 ('DIY'),
-('sports'),
-('cooking');
+('Education'),
+('Environment & Sustainability'),
+('Hair & Beauty'),
+('Health Issues'),
+('Homelessness'),
+('Languages'),
+('Loneliness & Isolation'),
+('Migration'),
+('Parenting'),
+('Relationship Issues'),
+('Sport'),
+('Unemployment'),
+('Wellness');
 
 INSERT INTO offers (category_id, offer_name, offer_description, member_id) VALUES
-(1, 'painting' , 'I would like to share my single-stroke prowess with a canvass', 4),
-(2, 'woodwork' , 'My cabinet-making skills have changed the world and I want to share it with someone', 3),
-(3, 'football' , 'Teaching a bicycle kick to a neighbour would be great', 2),
-(4, 'hotpot' , 'Showing a community member how to setup a hotpot brings a great feeling to me', 1),
-(3, 'swimming', 'Able to teach various styles and techniques', 4);
+(2, 'Caring Experience', 'I have experience caring for a child with Cerebral Palsy', 1),
+(18, 'Bureaucracy', 'I have experienced insecure and temporary employment', 2),
+(6, 'DIY', 'I have some basic DIY skills to offer', 3),
+(12, 'Spanish Translation' , 'I am fluent in Spanish and have experience of translation', 4);
 
 INSERT INTO requests (category_id, request_name, request_description, member_id) VALUES
-(1, 'drawing' , 'Needs help learning to draw on a graphic tablet', 4),
-(2, 'remodelling' , 'My second baby has a crib that needs remodelling but I would love if someone could teach me how to do it', 3),
-(3, 'swimming' , 'Would love it if anyone could help me with backstroke', 2),
-(4, 'sushi' , 'Will appreciate learning how to make salmon-skin sushi from a potential friend', 1);
+(2, 'Carers', 'I have a disabled son and would like to connect with someone in a similar situation', 4),
+(18, 'Redundancy', 'I have just been made redundant and would like help navigating the benefits system', 1),
+(6, 'DIY', 'I would really appreciate some help adapting our bathroom for our disabled son', 4),
+(12, 'Spanish Language Skills', 'I need some help filling out a form in spanish', 2);
+
+INSERT INTO groups (category_id, group_name, group_description, member_id) VALUES
+(17, 'Football', 'I would like to form a 5-a-side team to join a league', 1),
+(8, 'Vegetable Garden', 'I would like to establish a community garden to grow vegeatbles', 2),
+(7, 'Book Club', 'I would like to start a book club', 3),
+(3, 'Hot Pot', 'I would like to start a hot-pot and sushi club', 4);
+
 
 INSERT INTO interactions (offer_id, request_id, offerer_id, requester_id) VALUES
-( 1, NULL, 4, 3 ),
-( 2, NULL, 3, 4 ),
-( NULL, 3 , 1, 2 ),
-( NULL, 4 , 2, 1 );
+( 1, NULL, 1, 4 ),
+( 2, NULL, 2, 1 ),
+( NULL, 3 , 3, 4 ),
+( NULL, 4 , 4, 2 );
 
 INSERT INTO comments (author_id, subject_id, comment) VALUES
-(3, 4, 'Taught me so much about single-strokes to make a happy painting'),
-(4, 3, 'Managed to build a high-quality cabinet out of wood ordered online with help'),
-(2, 1, 'Learned so much about backstrokes in swimming it was great'),
-(1, 2, 'Will appreciate learning how to make salmon-skin sushi from a potential friend');
+(1, 2, 'Judith was really patient and understanding in helping me navigate the unemployment benefits system'),
+(2, 4, 'Kin helped me fill out a form in spanish in just a fraction of time it would have taken me otherwise!'),
+(4, 1, 'It was great to talk about my experience of caring for a disabled child with someone else facing similar challenges'),
+(4, 3, 'Dan had some great tips for addapting my bathroom for my disabled son');
 
 COMMIT;
