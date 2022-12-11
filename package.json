@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/fac18/humble#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nodemon": "^2.0.2",
     "pg": "^7.17.1"
   },
